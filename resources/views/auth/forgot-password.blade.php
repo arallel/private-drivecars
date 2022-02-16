@@ -1,34 +1,43 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+   	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<div class="login100-form validate-form ">
+					<span class="login100-form-title p-b-51">
+						Reset Password
+					</span>
+ 
+                    <form action="{{ route('password.email') }}" method="POST">
+						@csrf
+					
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Email">
+						<input class="input100" type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Place your email here">
+						<span class="focus-input100"></span>
+					
+					@error('email')
+                    <div class="alert alert-danger mt-2">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                    @enderror
+				</div>
+						
+					</div>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+					<div class="container-login100-form-btn m-t-16">
+						<button class="login100-form-btn">
+							Send email verification
+						</button>
+					</div><br>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
+						<div>
+							<a href="{{ url('login') }}" class="txt1">
+								Login here
+							</a>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </x-guest-layout>
