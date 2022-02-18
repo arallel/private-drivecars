@@ -59,7 +59,7 @@
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
-        {{-- no ktp --}}
+        {{-- ktp --}}
           <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="ktp" value="{{ __('ktp') }}" />
             <x-jet-input id="ktp" type="text" class="mt-1 block w-full" wire:model.defer="state.ktp" autocomplete="ktp" />
@@ -71,6 +71,50 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+         {{-- gender --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="gender" value="{{ __('gender') }}" />
+            <x-jet-input id="gender" type="text" class="mt-gender block w-full" wire:model.defer="state.gender" autocomplete="gender" />
+            <x-jet-input-error for="gender" class="mt-2" />
+        </div>
+         {{-- tempat_lahir --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="tempat_lahir" value="{{ __('tempat_lahir') }}" />
+            <x-jet-input id="tempat_lahir" type="text" class="mt-tempat_lahir block w-full" wire:model.defer="state.tempat_lahir" autocomplete="tempat_lahir" />
+            <x-jet-input-error for="tempat_lahir" class="mt-2" />
+        </div>
+         {{-- tanggal_lahir --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="tanggal_lahir" value="{{ __('tanggal_lahir') }}" />
+            <x-jet-input id="tanggal_lahir" type="date" class="mt-tanggal_lahir block w-full" wire:model.defer="state.tanggal_lahir" autocomplete="tanggal_lahir" />
+            <x-jet-input-error for="tanggal_lahir" class="mt-2" />
+        </div>
+         {{-- provinsi --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="provinsi" value="{{ __('provinsi') }}" />
+            <x-jet-input id="provinsi" type="text" class="mt-provinsi block w-full" wire:model.defer="state.provinsi" autocomplete="provinsi" />
+            <x-jet-input-error for="provinsi" class="mt-2" />
+        </div>
+         {{-- kabupaten --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="kabupaten" value="{{ __('kabupaten') }}" />
+            <x-jet-input id="kabupaten" type="text" class="mt-kabupaten block w-full" wire:model.defer="state.kabupaten" autocomplete="kabupaten" />
+            <x-jet-input-error for="kabupaten" class="mt-2" />
+        </div>
+         {{-- kecamatan --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="kecamatan" value="{{ __('kecamatan') }}" />
+            <x-jet-input id="kecamatan" type="text" class="mt-kecamatan block w-full" wire:model.defer="state.kecamatan" autocomplete="kecamatan" />
+            <x-jet-input-error for="kecamatan" class="mt-2" />
+        </div>
+         {{-- alamat --}}
+         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="alamat" value="{{ __('alamat') }}" />
+            <x-jet-input id="alamat" type="text" class="mt-alamat block w-full" wire:model.defer="state.alamat" autocomplete="alamat" />
+            <x-jet-input-error for="alamat" class="mt-2" />
+        </div>
+        
+        
     </x-slot>
 
     <x-slot name="actions">

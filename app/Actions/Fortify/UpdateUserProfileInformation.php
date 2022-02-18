@@ -23,6 +23,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
             'ktp' => ['nullable','string'],
+            'gender' => ['nullable','string'],	
+            'tempat_lahir' => ['nullable','string'],
+            'tanggal_lahir' => ['nullable','date'],
+            'provinsi'	=> ['nullable','string'],
+            'kabupaten'	=> ['nullable','string'],
+            'kecamatan'	=> ['nullable','string'],
+            'alamat' => ['nullable','string'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -37,6 +44,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'name' => $input['name'],
                 'ktp' => $input['ktp'],
                 'email' => $input['email'],
+                'gender' =>  $input['gender'],	
+                'tempat_lahir' =>  $input['tempat_lahir'],
+                'tanggal_lahir' =>  $input['tanggal_lahir'],
+                'provinsi'	=>  $input['provinsi'],
+                'kabupaten'	=>  $input['kabupaten'],
+                'kecamatan'	=>  $input['kecamatan'],
+                'alamat' =>  $input['alamat'],
             ])->save();
         }
     }
@@ -54,9 +68,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'ktp' => $input['ktp'],
+            'gender' => $input['gender'],
+            'tempat_lahir' => $input['tempat_lahir'],
+            'tanggal_lahir' => $input['tanggal_lahir'],
+            'provinsi'	=> $input['provinsi'],
+            'kabupaten'	=> $input['kabupaten'],
+            'kecamatan'	=> $input['kecamatan'],
+            'alamat' => $input['alamat'],
             'email_verified_at' => null,
         ])->save();
 
         $user->sendEmailVerificationNotification();
     }
 }
+	

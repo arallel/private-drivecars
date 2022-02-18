@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('redirects','App\Http\Controllers\homecontroller@index')->middleware('auth:sanctum');
 Route::get('/', function () {
     return view('welcome');
 });
