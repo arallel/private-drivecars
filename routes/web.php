@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('redirects','App\Http\Controllers\homecontroller@index')->middleware('auth:sanctum');
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('driverdata', function () {
+        return view('dashboard.driverdata');
+    });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
