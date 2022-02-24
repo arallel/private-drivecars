@@ -97,13 +97,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                      {{-- @foreach ($posts as $post)
+                      @foreach ($users as $user)
                       <tr>
-                          <td>{{ $post->title}}</td>
-                          <td>{{ $post->body }}</td> 
+                          <td class="text-center">{{ $user->id }}</td>
+                          <td>{{ $user->uid }}</td> 
+                          <td>{{ $user->nama }}</td>
+                          <td>{{ $user->gender }}</td>
+                          <td>{{ $user->status }}</td>
+                          {{-- <td>{{ $user-> }}</td> --}}
                       </tr>
-                    @endforeach --}}
-                        <tr>
+                    @endforeach
+                        {{-- <tr>
                             <td class="text-center">1</td>
                             <td>Andrew Mike</td>
                             <td>Develop</td>
@@ -120,7 +124,7 @@
                                     <i class="now-ui-icons ui-1_simple-remove"></i>
                                 </button>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
       
