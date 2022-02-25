@@ -1,5 +1,5 @@
-@include('layouts.header')
-   @include('layouts.sidebar')
+@extends('layouts.dashboard')
+@section('isi')
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
@@ -85,47 +85,35 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="text-center">No</th>
-                            <th>Nama</th>
-                            <th>Uid</th>
-                            <th>Gender</th>
-                            <th>Status pegawai</th>
-                            <th>Detail</th>
-                        </tr>
+                <h4 class="card-title"> Simple Table</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>email</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center">Status pegawai</th>
+                        <th>Detail</th>
+                    </tr>
                     </thead>
                     <tbody>
                       @foreach ($users as $user)
                       <tr>
-                          <td class="text-center">{{ $user->id }}</td>
-                          <td>{{ $user->uid }}</td> 
-                          <td>{{ $user->nama }}</td>
-                          <td>{{ $user->gender }}</td>
-                          <td>{{ $user->status }}</td>
-                          {{-- <td>{{ $user-> }}</td> --}}
+                          <td>{{ $user->id }}</td>
+                          <td>{{ $user->name }}</td> 
+                          <td>{{ $user->email }}</td>
+                          <td class="text-center">{{ $user->gender }}</td>
+                          <td class="text-center">{{ $user->status }}</td>
+                          <td><button class="btn btn-primary" onclick="Livewire.emit('openModal', 'livewire.detail.detaildriver')">show</button></td>
                       </tr>
                     @endforeach
-                        {{-- <tr>
-                            <td class="text-center">1</td>
-                            <td>Andrew Mike</td>
-                            <td>Develop</td>
-                            <td>2013</td>
-                            <td>&euro; 99,225</td>
-                            <td class="td-actions">
-                                <button type="button" rel="tooltip" class="btn btn-info btn-sm btn-icon">
-                                    <i class="now-ui-icons users_single-02"></i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-icon">
-                                    <i class="now-ui-icons ui-2_settings-90"></i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                </button>
-                            </td>
-                        </tr> --}}
                     </tbody>
-                </table>
-      
-    @include('layouts.footer')
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>     
+    @endsection

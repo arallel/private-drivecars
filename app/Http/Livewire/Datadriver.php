@@ -14,6 +14,11 @@ class Datadriver extends Component
         $this->users = User::all();
         return view('livewire.datadriver');
     }
+    public function show()
+    {
+        $this->resetCreateForm();
+        $this->openModalPopover();
+    }
     public function openModalPopover()
     {
         $this->isModalOpen = true;

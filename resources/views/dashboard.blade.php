@@ -1,6 +1,5 @@
-
-@include('layouts.header')
-@include('layouts.sidebar')
+@extends('layouts.dashboard')
+@section('isi')
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
   <div class="container-fluid">
@@ -345,4 +344,4 @@
     </div>
   </div>
 </div>
-@include('layouts.footer')
+@endsection

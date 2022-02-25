@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\showcontroller;
 use App\Http\Livewire\Datadriver;
-
+use App\Http\Livewire\detaildriver;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +16,17 @@ use App\Http\Livewire\Datadriver;
 |
 */
 Route::get('datadriver', Datadriver::class);
-Route::get('dashboard','App\Http\Controllers\homecontroller@index')->middleware('web');
+
+
+// Route::controller(Datadriver::class)->group(function () {
+//     Route::get('datadriver',);
+//     Route::get('/detaildriver', 'show');
+// });
+
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::middleware(['web', 'verified'])->group(function () {
-        return view('dashboard.driverdata');
-});
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
+    Route::get('dashboard','App\Http\Controllers\homecontroller@index');
 })->name('dashboard');

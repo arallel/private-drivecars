@@ -20,7 +20,7 @@
             {{ __('Log Out') }}
         </x-jet-dropdown-link>
     </form>
-      <li {{{ (Request::is('driverdata') ? 'class=active' : '') }}} ">
+      <li {{{ (Request::is('datadriver') ? 'class=active' : '') }}} ">
         <a href="{{ url('datadriver') }}">
           <i class="now-ui-icons users_single-02"></i>
           <p>Driver Profile</p>
