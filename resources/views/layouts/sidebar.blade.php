@@ -138,4 +138,6 @@
     </div>
   </div>
 </nav>
+<div class="panel-header panel-header-sm">
+</div>
 <!-- End Navbar -->

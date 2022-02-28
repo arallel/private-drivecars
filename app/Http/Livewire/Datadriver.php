@@ -7,17 +7,12 @@ use App\Models\User;
 
 class Datadriver extends Component
 {
-    public $users, $email, $name, $gender, $status;
+    public $users, $email, $name, $gender, $status,$ktp, $tempat_lahir, $tanggal_lahir, $provinsi, $kabupaten, $kecamatan, $alamat;
     public $isModalOpen = 0;
     public function render()
     {
         $this->users = User::all();
         return view('livewire.datadriver');
-    }
-    public function show()
-    {
-        $this->resetCreateForm();
-        $this->openModalPopover();
     }
     public function openModalPopover()
     {
@@ -26,5 +21,22 @@ class Datadriver extends Component
     public function closeModalPopover()
     {
         $this->isModalOpen = false;
+    }
+    public function show($id)
+    {
+        $users = User::findOrFail($id);
+        $this->id = $id;
+        $this->name = $users->name;
+        $this->email = $users->email;
+        $this->gender = $users->gender;
+        $this->tempat_lahir = $users->tempat_lahir;
+        $this->tanggal_lahir = $users->tanggal_lahir;
+        $this->provinsi = $users->provinsi;
+        $this->kabupaten = $users->kabupaten;
+        $this->kecamatan = $users->kecamatan;
+        $this->alamat = $users->alamat;
+        $this->status = $users->status;
+
+        $this->openModalPopover();
     }
 }
