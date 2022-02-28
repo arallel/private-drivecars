@@ -16,12 +16,14 @@ use App\Http\Livewire\Datadriver;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+//route ketika sudah fix
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard','App\Http\Controllers\homecontroller@index');
     Route::get('datadriver', Datadriver::class);
+    });
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
 })->name('dashboard');
