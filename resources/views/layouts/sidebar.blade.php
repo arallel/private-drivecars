@@ -26,8 +26,8 @@
           <p>Driver Profile</p>
         </a>
       </li>
-      <li >
-        <a href="examples.map">
+      <li {{{ (Request::is('cars') ? 'class=active' : '') }}}>
+        <a href="{{ url('cars') }}">
           <i class="now-ui-icons transportation_bus-front-12"></i>
           <p>cars</p>
         </a>

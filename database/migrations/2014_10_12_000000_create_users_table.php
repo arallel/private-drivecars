@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('idcars')->nullable();
             $table->char('ktp')->unique()->nullable();
             $table->string('file')->nullable();
             $table->char('uid')->nullable();
