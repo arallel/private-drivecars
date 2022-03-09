@@ -16,6 +16,9 @@
         @if($ModalOpen)
         @include('livewire.detailkendaraan')
         @endif
+        @if($bukaimg)
+        @include('livewire.imagecar')
+        @endif
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
@@ -26,6 +29,7 @@
                   <th class="text-center">Plat kendaraan</th>
                   <th class="text-center">Photo</th>
                   <th>Detail</th>
+                 
               </tr>
               </thead>
               <tbody>
@@ -35,7 +39,7 @@
                     <td>{{ $car->merkkendaraan }}</td> 
                     <td>{{ $car->warna }}</td>
                     <td class="text-center">{{ $car->platmobil }}</td>
-                    <td class="text-center">{{ $car->status }}</td>
+                    <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="180" height="180"></td>
                     <td><button wire:click="show({{ $car->id }})"
                       class="btn btn-primary">show</button> 
                       <button wire:click="edit({{ $car->id }})"

@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper" id="sidebar-wrapper">
     <ul class="nav">
-      <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}} >
+      <li {{{ (Request::is('Dashboard') ? 'class=active' : '') }}} >
         <a href="dashboard">
           <i class="now-ui-icons design_app"></i>
           <p>Dashboard</p>

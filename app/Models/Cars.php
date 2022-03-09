@@ -14,6 +14,7 @@ class Cars extends Model
         'warna',
         'nobpkb',
         'merkkendaraan',
-        'bahanbakar'
+        'bahanbakar',
+        'filecar'
     ];
 }

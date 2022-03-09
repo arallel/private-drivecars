@@ -8,6 +8,22 @@
             <h5 class="modal-title w-100">input</h5> 
           </div><br>
           <form>
+            @if($filecar)
+              Photo Preview:
+              <img src="{{ $filecar->temporaryUrl() }}" width="50" height="50">
+            @endif
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
+              </div><span></span>
+              <input type="file" placeholder="Photo kendaraan"  @error('filecar') is-invalid @enderror class="form-control" wire:model="filecar">
+            </div>
+            @error('filecar')
+            <div class="alert alert-danger mt-2">
+              {{ $message }}
+            </div>    
+          @enderror
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
@@ -18,8 +34,7 @@
             <div class="alert alert-danger mt-2">
               {{ $message }}
             </div>    
-          @enderror
-                     
+          @enderror                   
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></div>
