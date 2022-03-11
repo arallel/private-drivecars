@@ -54,7 +54,7 @@
 
             <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu') --}}
-            @yield('isi')
+
             
 
             <!-- Page Content -->
@@ -74,6 +74,7 @@
                           </a>
                         </div>
                         @include('layouts.sidebar')
+                        @yield('isi')
                 {{ $slot }}
                 <footer class="footer">
                     <div class=" container-fluid ">

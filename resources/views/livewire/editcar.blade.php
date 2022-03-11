@@ -5,25 +5,14 @@
         </div>
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-20 sm:align-middle sm:max-w-lg sm:w-full"role="dialog" aria-modal="true" aria-labelledby="modal-headline">
           <div class="modal-header text-center">
-            <h5 class="modal-title w-100">input</h5> 
+            <h5 class="modal-title w-100">Edit</h5> 
           </div><br>
           <form>
             @if($filecar)
-            Preview:
-            <img src="{{ $filecar->temporaryUrl() }}" width="100" height="100" >            
+            <div class="text-center">
+              <img src="{{ asset('storage/' . $filecar) }}" class="rounded"  width="150" height="150">
+            </div><br>
             @endif
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
-              </div><span></span>
-              <input type="file" placeholder="Photo kendaraan"  @error('filecar') is-invalid @enderror class="form-control" wire:model="filecar">
-            </div>
-            @error('filecar')
-            <div class="alert alert-danger mt-2">
-              {{ $message }}
-            </div>    
-          @enderror
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
@@ -95,7 +84,7 @@
                 </div>    
               @enderror
               </form>
-              <button wire:click="tutupcreate()" class="btn btn-primary">Cancel</button>
+              <button wire:click="tutupedit()" class="btn btn-primary">Cancel</button>
               <button wire:click="store()" type="button"
               class="btn btn-info">
               input

@@ -6,6 +6,9 @@
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-20 sm:align-middle sm:max-w-lg sm:w-full"role="dialog" aria-modal="true" aria-labelledby="modal-headline">
           <div class="modal-header text-center">
             <h5 class="modal-title w-100">Detail</h5> 
+          </div><br>  
+          <div class="text-center">
+            <img src="{{ asset('storage/' . $filecar) }}" class="rounded"  width="150" height="150">
           </div><br>
           <form>
                 <div class="input-group">

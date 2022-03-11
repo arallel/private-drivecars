@@ -16,9 +16,10 @@
         @if($ModalOpen)
         @include('livewire.detailkendaraan')
         @endif
-        @if($bukaimg)
-        @include('livewire.imagecar')
+        @if($bukaedit)
+        @include('livewire.editcar')
         @endif
+        <?php $i = 0; ?>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
@@ -28,6 +29,7 @@
                   <th>Warna</th>
                   <th class="text-center">Plat kendaraan</th>
                   <th class="text-center">Photo</th>
+                  <th>Qr code</th>
                   <th>Detail</th>
                  
               </tr>
@@ -35,11 +37,12 @@
               <tbody>
                 @foreach ($cars as $car)
                 <tr>
-                    <td>{{ $car->id }}</td>
+                    <td>{{ ++$i }}</td>
                     <td>{{ $car->merkkendaraan }}</td> 
                     <td>{{ $car->warna }}</td>
                     <td class="text-center">{{ $car->platmobil }}</td>
-                    <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="180" height="180"></td>
+                    <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="150" height="100"></td>
+                    <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna)) !!}"></td>
                     <td><button wire:click="show({{ $car->id }})"
                       class="btn btn-primary">show</button> 
                       <button wire:click="edit({{ $car->id }})"

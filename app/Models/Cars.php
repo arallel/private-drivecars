@@ -15,6 +15,7 @@ class Cars extends Model
         'nobpkb',
         'merkkendaraan',
         'bahanbakar',
-        'filecar'
+        'filecar',
+        'carsqr'
     ];
 }

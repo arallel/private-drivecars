@@ -5,13 +5,15 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Cars;
+use SimpleSoftwareIO\QrCode\Generator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Kendaraan extends Component
 {
-    public $cars ,$platmobil,$nostnk,$warna,$nobpkb,$merkkendaraan,$bahanbakar,$cars_id,$filecar;
+    public $cars ,$platmobil,$nostnk,$warna,$nobpkb,$merkkendaraan,$bahanbakar,$cars_id,$filecar,$carsqr;
     public $ModalOpen = 0;
     public $bukacreate = 0;
-    public $bukaimg = 0;
+    public $bukaedit = 0;
     use WithFileUploads;
     public function render()
     {
@@ -35,13 +37,13 @@ class Kendaraan extends Component
     {
         $this->bukacreate = false;
     }
-    public function bukaimg()
+    public function bukaedit()
     {
-        $this->bukaimg = true;
+        $this->bukaedit = true;
     }
-    public function tutupimg()
+    public function tutupedit()
     {
-        $this->bukaimg = false;
+        $this->bukaedit = false;
     }
     //crud
     public function create()
@@ -59,7 +61,8 @@ class Kendaraan extends Component
         $this->nobpkb = $cars->nobpkb;
         $this->merkkendaraan = $cars->merkkendaraan;
         $this->bahanbakar = $cars->bahanbakar;
-
+        $this->filecar = $cars->filecar;
+// @dd($cars);
         $this->openModalPopover();
     }
     private function resetCreateForm(){
@@ -93,9 +96,8 @@ class Kendaraan extends Component
             'merkkendaraan' =>$this->merkkendaraan,
             'bahanbakar' => $this->bahanbakar,
             'filecar' =>$this->filecar->store('cars-image'),
-            // 'filecar'=> $this->filecar->storePublicly('storage', 'public'),
         ]);
-
+        
         session()->flash('message', $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.');
 
         
@@ -103,13 +105,13 @@ class Kendaraan extends Component
         $this->tutupcreate();
     }
 
-    public function showimg($id)
+    public function generate($id)
     {
         $cars = Cars::findOrFail($id);
-        $this->cars_id = $id;
-         $this->filecar = $cars->filecar;
 
-         $this->bukaimg();
+
+        QrCode::size(400)->format('png')->generate('hai');
+        $this->bukaqr();
     }
 
     public function edit($id)
@@ -122,8 +124,9 @@ class Kendaraan extends Component
          $this->nobpkb = $cars->nobpkb;
          $this->merkkendaraan = $cars->merkkendaraan;
          $this->bahanbakar = $cars->bahanbakar;
+         $this->filecar = $cars->filecar;
 
-         $this->bukacreate();
+         $this->bukaedit();
     }
     public function delete($id)
     {
