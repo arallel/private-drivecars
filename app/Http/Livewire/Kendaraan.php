@@ -81,12 +81,12 @@ class Kendaraan extends Component
     public function store()
     {
         $this->validate([
-            'platmobil' => 'required',
+            'platmobil' => 'required|max:4',
             'nostnk' => 'required',
             'warna' => 'required',
             'nobpkb' => 'required',
             'merkkendaraan' => 'required',
-            'bahanbakar' => 'required',
+            'bahanbakar' => 'required|min:4',
             'filecar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
     

@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">
-        <h4 class="card-title"> Simple Table</h4>
+        <div class="card-header text-center" >
+        <h4 class="card-title">Driver Table</h4>
       </div>
       @if($isModalOpen)
       @include('livewire.showdetail')
@@ -29,7 +29,7 @@
                   <td class="text-center">{{ $user->gender }}</td>
                   <td class="text-center">{{ $user->status }}</td>
                   <td><button wire:click="show({{ $user->id }})"
-                    class="btn btn-primary">show</button></td>
+                    class="btn btn-info"><i class="fa-solid fa-eye"></i></button></td>
               </tr>
             @endforeach
             </tbody>
