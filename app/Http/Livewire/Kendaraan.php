@@ -111,15 +111,15 @@ class Kendaraan extends Component
         $this->tutupcreate();
     }
 
-    public function generate()
-    {
-        $this->alert('success', 'test', [
-            'position' => 'center',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-           ]);
-    }
+    // public function generate()
+    // {
+    //     $this->alert('success', 'test', [
+    //         'position' => 'center',
+    //         'timer' => 3000,
+    //         'toast' => true,
+    //         'timerProgressBar' => true,
+    //        ]);
+    // }
 
     public function edit($id)
     {
@@ -138,6 +138,12 @@ class Kendaraan extends Component
     public function delete($id)
     {
         Cars::find($id)->delete();
-        session()->flash('message', 'Data deleted successfully.');
+        $this->alert('success', 'Data berhasil di hapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
+        
     }
 }

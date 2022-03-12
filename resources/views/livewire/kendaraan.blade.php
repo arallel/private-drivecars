@@ -5,11 +5,9 @@
         <div class="card">
           <div class="card-header">
           <h4 class="card-title text-center">Cars Table</h4>
-          <button wire:click="create()"
-          class="btn btn-info text-center">create</button>
         </div>
-        {{-- <button wire:click="create()"
-          class="btn btn-info">create</button> --}}
+        <button wire:click="create()"
+          class="btn btn-info">create</button>
         @if(Session::has('success'))
     <div class="alert alert-success" role="alert">
         {{Session::get('success')}}
