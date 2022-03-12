@@ -10,6 +10,13 @@
           {{-- @if($bukaedit)
           @include('livewire.editcar')
         @endif --}}
+        
+        @if(Session::has('success'))
+
+    <div class="alert alert-success" role="alert">
+        {{Session::get('success')}}
+    </div>
+     @endif
         @if($bukacreate)
           @include('livewire.inputcar')
         @endif
@@ -42,11 +49,13 @@
                     <td>{{ $car->warna }}</td>
                     <td class="text-center">{{ $car->platmobil }}</td>
                     <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="150" height="100"></td>
-                    <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna)) !!}"></td>
+                    <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna.$car->nostnk.$car->nobpkb.$car->merkkendaraan.$car->bahanbakar.$car->platkendaraan)) !!}"></td>
                     <td><button wire:click="show({{ $car->id }})"
                       class="btn btn-primary">show</button> 
                       <button wire:click="edit({{ $car->id }})"
-                        class="btn btn-primary">edit</button> 
+                        class="btn btn-primary">edit</button>
+                        <button wire:click="generate({{ $car->id }})"
+                          class="btn btn-primary">test</button> 
                         <button wire:click="delete({{ $car->id }})"
                           class="btn btn-danger">delete</button>
                     </td>

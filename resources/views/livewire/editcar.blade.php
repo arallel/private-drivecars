@@ -17,6 +17,17 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
               </div><span></span>
+              <input type="file" placeholder="Photo kendaraan"  @error('filecar') is-invalid @enderror class="form-control" wire:model="filecar">
+            </div>
+            @error('filecar')
+            <div class="alert alert-danger mt-2">
+              {{ $message }}
+            </div>    
+          @enderror
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
+              </div><span></span>
               <input type="text" placeholder="Merk kendaraan"  @error('merkkendaraan') is-invalid @enderror class="form-control" wire:model="merkkendaraan">
             </div>
             @error('merkkendaraan')

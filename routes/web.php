@@ -5,6 +5,7 @@ use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\showcontroller;
 use App\Http\Livewire\Datadriver;
 use App\Http\Livewire\Kendaraan;
+use App\Http\Livewire\Users;
 // use App\Http\Livewire\Test;
 
 
@@ -22,13 +23,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 // Route::get('test', Test::class);
+Route::get('datadriver', Datadriver::class);
 Route::get('cars', kendaraan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
    
-    Route::get('datadriver', Datadriver::class);
+
 
     });
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Users::class); 

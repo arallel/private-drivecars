@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\Cars;
 use SimpleSoftwareIO\QrCode\Generator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Kendaraan extends Component
 {
@@ -15,6 +16,7 @@ class Kendaraan extends Component
     public $bukacreate = 0;
     public $bukaedit = 0;
     use WithFileUploads;
+    use LivewireAlert;
     public function render()
     {
         $this->cars = Cars::all();
@@ -97,21 +99,26 @@ class Kendaraan extends Component
             'bahanbakar' => $this->bahanbakar,
             'filecar' =>$this->filecar->store('cars-image'),
         ]);
-        
-        session()->flash('message', $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.');
-
-        
+        $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
+            
         $this->resetCreateForm();
+        $this->tutupedit();
         $this->tutupcreate();
     }
 
-    public function generate($id)
+    public function generate()
     {
-        $cars = Cars::findOrFail($id);
-
-
-        QrCode::size(400)->format('png')->generate('hai');
-        $this->bukaqr();
+        $this->alert('success', 'test', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
     }
 
     public function edit($id)

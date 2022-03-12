@@ -26,8 +26,7 @@
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="blue">
+@include('layouts.datacolor')
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->

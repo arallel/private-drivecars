@@ -1,4 +1,3 @@
-@extends('layouts.dashboard')
 @section('isi')
 <div class="panel-header panel-header-lg">
   <canvas id="bigDashboardChart"></canvas>
@@ -169,97 +168,29 @@
           <h5 class="card-category">All Persons List</h5>
           <h4 class="card-title"> Employees Stats</h4>
         </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class=" text-primary">
-                <th>
-                  Name
-                </th>
-                <th>
-                  Country
-                </th>
-                <th>
-                  City
-                </th>
-                <th class="text-right">
-                  Salary
-                </th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-right">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+                <th>No</th>
+                <th>Nama</th>
+                <th>email</th>
+                <th class="text-center">Gender</th>
+                <th class="text-center">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+              @foreach ($users as $user)
+              <tr>
+                  <td>{{ $user->id }}</td>
+                  <td>{{ $user->name }}</td> 
+                  <td>{{ $user->email }}</td>
+                  <td class="text-center">{{ $user->gender }}</td>
+                  <td class="text-center">{{ $user->status }}</td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
         </div>
       </div>
     </div>

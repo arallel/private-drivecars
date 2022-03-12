@@ -35,33 +35,9 @@
       
      
     </head>
-    {{-- <body class="font-sans antialiased">
-        <div class="wrapper ">
-          <div class="sidebar" data-color="blue">
-            <!--
-              Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-             -->
-            <div class="logo">
-              <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                CT
-              </a>
-              <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
-              </a>
-            </div>
-           
-             {{-- <x-jet-banner />
-
-            <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu') --}}
-
-            
-
-            <!-- Page Content -->
             <main>
                 <body class="font-sans antialiased">
-                    <div class="wrapper ">
-                      <div class="sidebar" data-color="blue">
+                      @include('layouts.datacolor')
                         <!--
                           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
                          -->
@@ -72,8 +48,9 @@
                           <a href="http://www.creative-tim.com" class="simple-text logo-normal">
                             Creative Tim
                           </a>
+                          
                         </div>
-                        @include('layouts.sidebar')
+                        @include('layouts.sidebar')                        
                         @yield('isi')
                 {{ $slot }}
                 <footer class="footer">
@@ -129,6 +106,24 @@
                <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
                <script src="{{ asset('../ui/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript') }}"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
              <!-- JavaScript Bundle with Popper -->
+             <script src="../ui/assets/demo/demo.js"></script>
+             <script>
+              window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                  $(this).remove(); 
+                });
+              }, 5000);
+            </script>
+             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+    
+    });
+    </script>
+            <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+            <x-livewire-alert::flash /> 
              @livewireScripts
     </body>
 </html>
