@@ -42,7 +42,8 @@
                   <td>{{ $car->warna }}</td>
                   <td class="text-center">{{ $car->platmobil }}</td>
                   <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="150" height="100"></td>
-                  <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna)) !!}"></td>
+                  {{-- <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna)) !!}"></td> --}}
+                  <td>{!! QrCode::size(100)->format('svg')->generate($car->id.$car->warna)  !!} </td>
                   <td><button wire:click="show({{ $car->id }})"
                     class="btn btn-primary">show</button> 
                     <button wire:click="edit({{ $car->id }})"
