@@ -37,6 +37,7 @@
     </head>
             <main>
                 <body class="font-sans antialiased">
+                  <div class="wrapper ">
                       @include('layouts.datacolor')
                         <!--
                           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
@@ -107,14 +108,15 @@
                <script src="{{ asset('../ui/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript') }}"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
              <!-- JavaScript Bundle with Popper -->
              <script src="../ui/assets/demo/demo.js"></script>
-             <script>
+             @livewireScripts
+             {{-- <script>
               window.setTimeout(function() {
                 $(".alert").fadeTo(500, 0).slideUp(500, function(){
                   $(this).remove(); 
                 });
               }, 5000);
-            </script>
-             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            </script> --}}
+             {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
               <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
@@ -122,8 +124,9 @@
     
     });
     </script>
-            <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
-            <x-livewire-alert::flash /> 
-             @livewireScripts
+
+            {{-- <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>  --}}
+            {{-- <x-livewire-alert::flash />  --}}
+        
     </body>
 </html>

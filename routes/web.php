@@ -23,10 +23,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 // Route::get('test', Test::class);
-
+Route::get('datadriver', Datadriver::class);
+Route::get('cars', kendaraan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('datadriver', Datadriver::class);
-    Route::get('cars', kendaraan::class);
+
     });
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Users::class); 
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
