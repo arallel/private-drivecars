@@ -179,7 +179,7 @@
             </tr>
             </thead>
             <tbody>
-              @foreach ($users as $user)
+              {{-- @foreach ($users as $user)
               <tr>
                   <td>{{ $user->id }}</td>
                   <td>{{ $user->name }}</td> 
@@ -187,7 +187,7 @@
                   <td class="text-center">{{ $user->gender }}</td>
                   <td class="text-center">{{ $user->status }}</td>
               </tr>
-            @endforeach
+            @endforeach --}}
             </tbody>
           </table>
         </div>

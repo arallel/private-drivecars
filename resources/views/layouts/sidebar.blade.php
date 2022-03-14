@@ -32,12 +32,12 @@
           <p>cars</p>
         </a>
       </li>
-      <li {{{ (Request::is('test') ? 'class=active' : '') }}}>
+      {{-- <li {{{ (Request::is('test') ? 'class=active' : '') }}}>
         <a href="{{ url('test') }}">
           <i class="now-ui-icons ui-1_bell-53"></i>
           <p>test</p>
         </a>
-      </li>
+      </li> --}}
       <li>
         <form method="POST" action="{{ route('logout') }}">
           @csrf

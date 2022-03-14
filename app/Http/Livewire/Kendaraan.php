@@ -81,12 +81,12 @@ class Kendaraan extends Component
     public function store()
     {
         $this->validate([
-            'platmobil' => 'required',
+            'platmobil' => 'required|max:4',
             'nostnk' => 'required',
             'warna' => 'required',
             'nobpkb' => 'required',
             'merkkendaraan' => 'required',
-            'bahanbakar' => 'required',
+            'bahanbakar' => 'required|min:4',
             'filecar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
     
@@ -111,15 +111,15 @@ class Kendaraan extends Component
         $this->tutupcreate();
     }
 
-    public function generate()
-    {
-        $this->alert('success', 'test', [
-            'position' => 'center',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-           ]);
-    }
+    // public function generate()
+    // {
+    //     $this->alert('success', 'test', [
+    //         'position' => 'center',
+    //         'timer' => 3000,
+    //         'toast' => true,
+    //         'timerProgressBar' => true,
+    //        ]);
+    // }
 
     public function edit($id)
     {
@@ -138,6 +138,12 @@ class Kendaraan extends Component
     public function delete($id)
     {
         Cars::find($id)->delete();
-        session()->flash('message', 'Data deleted successfully.');
+        $this->alert('success', 'Data berhasil di hapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
+        
     }
 }
