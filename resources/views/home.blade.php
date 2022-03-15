@@ -49,7 +49,7 @@
                     <a class="nav-link" href="{{ url('user') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
+                    <a class="nav-link" href="blog.html">Laporan</a>
                 </li>
                 <li class="nav-item"></li>
                     <a class="nav-link" href="contact.html">Contact</a>

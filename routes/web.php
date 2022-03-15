@@ -6,7 +6,7 @@ use App\Http\Controllers\showcontroller;
 use App\Http\Livewire\Datadriver;
 use App\Http\Livewire\Kendaraan;
 use App\Http\Livewire\Users;
-// use App\Http\Livewire\Test;
+use App\Http\Livewire\Laporan;
 
 
 /*
@@ -24,7 +24,8 @@ Route::get('/', function () {
 });
 // Route::get('test', Test::class);
 Route::get('datadriver', Datadriver::class);
-Route::get('cars', kendaraan::class);
+Route::get('cars', Kendaraan::class);
+Route::get('laporan', Laporan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
