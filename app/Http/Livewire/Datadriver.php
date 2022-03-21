@@ -7,7 +7,7 @@ use App\Models\User;
 
 class Datadriver extends Component
 {
-    public $users, $email, $name, $gender, $status,$ktp, $tempat_lahir, $tanggal_lahir, $provinsi, $kabupaten, $kecamatan, $alamat;
+    public $users, $email, $name, $gender, $status,$ktp, $tempat_lahir, $tanggal_lahir, $provinsi, $kabupaten, $kecamatan, $alamat,$contatct;
     public $isModalOpen = 0;
     public function render()
     {
@@ -29,6 +29,7 @@ class Datadriver extends Component
         $this->name = $users->name;
         $this->email = $users->email;
         $this->gender = $users->gender;
+        $this->contact = $users->contact;
         $this->tempat_lahir = $users->tempat_lahir;
         $this->tanggal_lahir = $users->tanggal_lahir;
         $this->provinsi = $users->provinsi;

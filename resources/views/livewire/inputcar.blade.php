@@ -10,7 +10,7 @@
           <form>
             @if($filecar)
             Preview:
-            <img src="{{ $filecar->temporaryUrl() }}" width="100" height="100" >            
+            <img src="{{ $filecar->temporaryUrl() }}" width="100" height="100">            
             @endif
 
             <div class="input-group">

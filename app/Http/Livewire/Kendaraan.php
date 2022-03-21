@@ -7,7 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\Cars;
 use SimpleSoftwareIO\QrCode\Generator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-// use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Kendaraan extends Component
 {
@@ -15,8 +15,9 @@ class Kendaraan extends Component
     public $ModalOpen = 0;
     public $bukacreate = 0;
     public $bukaedit = 0;
+    public $count = 0;
     use WithFileUploads;
-    // use LivewireAlert;
+    use LivewireAlert;
     public function render()
     {
         $this->cars = Cars::all();
@@ -99,27 +100,27 @@ class Kendaraan extends Component
             'bahanbakar' => $this->bahanbakar,
             'filecar' =>$this->filecar->store('cars-image'),
         ]);
-        // $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
-        //     'position' => 'center',
-        //     'timer' => 3000,
-        //     'toast' => true,
-        //     'timerProgressBar' => true,
-        //    ]);
+        $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
             
         $this->resetCreateForm();
         $this->tutupedit();
         $this->tutupcreate();
     }
 
-    // public function generate()
-    // {
-    //     $this->alert('success', 'test', [
-    //         'position' => 'center',
-    //         'timer' => 3000,
-    //         'toast' => true,
-    //         'timerProgressBar' => true,
-    //        ]);
-    // }
+    public function generate()
+    {
+        $this->alert('success', 'test', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
+    }
 
     public function edit($id)
     {
@@ -138,12 +139,12 @@ class Kendaraan extends Component
     public function delete($id)
     {
         Cars::find($id)->delete();
-        // $this->alert('success', 'Data berhasil di hapus', [
-        //     'position' => 'center',
-        //     'timer' => 3000,
-        //     'toast' => true,
-        //     'timerProgressBar' => true,
-        //    ]);
+        $this->alert('success', 'Data berhasil di hapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
         
     }
 }

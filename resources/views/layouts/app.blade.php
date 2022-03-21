@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- CSS Files -->
         <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a554a30ae6.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <!-- CSS only -->
@@ -35,63 +35,64 @@
       
      
     </head>
+    <body class="font-sans antialiased">
+      <div class="wrapper ">
+          @include('layouts.datacolor')
+            <!--
+              Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+             -->
+            <div class="logo">
+              <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                CT
+              </a>
+              <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                Creative Tim
+              </a>
+              
+            </div>
+           
             <main>
-                <body class="font-sans antialiased">
-                  <div class="wrapper ">
-                      @include('layouts.datacolor')
-                        <!--
-                          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-                         -->
-                        <div class="logo">
-                          <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                            CT
-                          </a>
-                          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                            Creative Tim
-                          </a>
-                          
-                        </div>
-                        @include('layouts.sidebar')                        
-                        @yield('isi')
+              @include('layouts.sidebar')                        
+              @yield('isi')
                 {{ $slot }}
-                <footer class="footer">
-                    <div class=" container-fluid ">
-                      <nav>
-                        <ul>
-                          <li>
-                            {{-- <a href="https://www.creative-tim.com">
-                              Creative Tim
-                            </a>
-                          </li>
-                          <li>
-                            <a href="http://presentation.creative-tim.com">
-                              About Us
-                            </a>
-                          </li>
-                          <li>
-                            <a href="http://blog.creative-tim.com">
-                              Blog
-                            </a>
-                          </li> --}}
-                        </ul>
-                      </nav>
-                      {{-- <div class="copyright" id="copyright">
-                        &copy; <script>
-                          document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                        </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-                      </div> --}}
-                    </div>
-                  </footer>
-       
+  
             </main>
-        
+            <footer class="footer">
+              <div class=" container-fluid ">
+                <nav>
+                  <ul>
+                    <li>
+                      {{-- <a href="https://www.creative-tim.com">
+                        Creative Tim
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://presentation.creative-tim.com">
+                        About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://blog.creative-tim.com">
+                        Blog
+                      </a>
+                    </li> --}}
+                  </ul>
+                </nav>
+                {{-- <div class="copyright" id="copyright">
+                  &copy; <script>
+                    document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                  </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+                </div> --}}
+              </div>
+            </footer>
+       
         {{-- </div> --}}
         @stack('modals')
        
           <!-- Scripts -->
           {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
           <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
               {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
                <!--   Core JS Files   -->
                <script src="{{ asset('../ui/assets/js/core/jquery.min.js') }}"></script>
@@ -115,18 +116,17 @@
                   $(this).remove(); 
                 });
               }, 5000);
-            </script> --}}
-             {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-              <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-    
-    });
-    </script>
+             </script> --}}
+             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+             <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+             <x-livewire-alert::flash /> 
+            <script>
+             $(document).ready(function() {
+             // Javascript method's body can be found in assets/js/demos.js
+             demo.initDashboardPageCharts();
+             });
+            </script>
 
-            {{-- <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>  --}}
-            {{-- <x-livewire-alert::flash />  --}}
         
     </body>
 </html>

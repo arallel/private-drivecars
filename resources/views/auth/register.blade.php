@@ -1,81 +1,155 @@
-<x-guest-layout>
- 
-	<div class="container">
-        <div class="row justify-content-center">
-		<div class="container-login100">
-			<div class="wrap-login100 p-t-50 p-b-150">
-				<div class="login100-form validate-form ">
-                    <form action="{{ route('register') }}" method="POST">
-						@csrf
-					<span class="login100-form-title p-b-51">
-						register
-					</span>
-                    
-                    <div class="col-md-25">
-                        <div class="form-group">
-					    <div class="wrap-input100 validate-input m-b-16" data-validate = "Name is required">
-						<input class="input100" type="text" @error('name') is-invalid @enderror name="name" placeholder="Name">
-						<span class="focus-input100"></span>
-					</div>
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Register</title>
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/a554a30ae6.js" crossorigin="anonymous"></script>
+ <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+ <link rel="stylesheet" href="reg/app.css">
+</head>
+<body class='snippet-body'>
+<!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Sign Up Your User Account</strong></h2>
+                <p>Fill all form field to go to next step</p>
+
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform" action="{{ route('register') }}" method="POST">
+                            @csrf
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Account</strong></li>
+                                <li id="personal"><strong>Personal</strong></li>
+                                <li id="alamat"><strong>alamat</strong></li>
+                                <li id="confirm"><strong>Finish</strong></li>
+                            </ul> <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Account Information</h2> 
+									<input type="email" @error('email') is-invalid @enderror name="email" placeholder="Email" /> 
+							@error('email')
+							<div class="alert alert-danger mt-2">
+								{{ $message }}
+							</div>    
+						@enderror
+									<input type="text"  @error('name') is-invalid @enderror name="name" placeholder="Nama" /> 
+									@error('name')
+								<div class="alert alert-danger mt-2">
+									{{ $message }}
+								</div>  
+								@enderror 	
+									<input type="password" @error('password') is-invalid @enderror name="password" placeholder="Password" /> 
+									@error('password')
+								<div class="alert alert-danger mt-2">
+									{{ $message }}
+								</div>    
+							@enderror
+									<input type="password" @error('password_confirmation') is-invalid @enderror name="password_confirmation" placeholder="Confirm Password" />
+									@error('password_confirmation')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+								</div> 
+								 
+							
+							
+							
+								<input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Personal Information</h2> 
+									<input type="text" @error('ktp') is-invalid @enderror name="ktp"  placeholder="No Ktp" /> 
+                                    @error('ktp')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+									<div class="row">
+                                        <div class="col-9"> <select class="list-dt" id="month" name="gender">
+                                                <option>Laki-Laki</option>
+                                                <option>Perempuan</option>
+                                            </select> 
+										</div>
+                                    </div> <br>
+									<input type="text" @error('contact') is-invalid @enderror name="contact"  placeholder="No hp" /> 
+                                    @error('contact')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">alamat Information</h2>
+                                    <input type="text" @error('tempat_lahir') is-invalid @enderror name="tempat_lahir"  placeholder="tempat lahir" /> 
+                                    @error('tempat_lahir')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                 <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir"  placeholder="tanggal lahir" /> 
+                                    @error('tanggal_lahir')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                 <input type="text" @error('provinsi') is-invalid @enderror name="provinsi"  placeholder="provinsi" /> 
+                                    @error('provinsi')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                 <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten"  placeholder="kabupaten" /> 
+                                    @error('kabupaten')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                 <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan"  placeholder="kecamatan" /> 
+                                    @error('kecamatan')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                 <input type="text" @error('alamat') is-invalid @enderror name="alamat"  placeholder="alamat" /> 
+                                    @error('alamat')
+									<div class="alert alert-danger mt-2">
+										{{ $message }}
+									</div>    
+								@enderror 
+                                </div>
+								<input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <button class="next action-button">submit</button>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
-                    </div>
-						@error('name')
-					<div class="alert alert-danger mt-2">
-						{{ $message }}
-					</div>    
-				@enderror
-                   
-                    <div class="col-md-25">
-                        <div class="form-group">
-                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
-						<input class="input100" type="email" @error('email') is-invalid @enderror name="email" placeholder="Email">
-						<span class="focus-input100"></span>
-					</div>
-                    </div>
-                   </div>
-				   @error('email')
-				   <div class="alert alert-danger mt-2">
-					   {{ $message }}
-				   </div>    
-			   @enderror
-                   <div class="col-md-25">
-                    <div class="form-group">
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password"  name="password" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div>
                 </div>
             </div>
-
-            <div class="col-md-25">
-                <div class="form-group">
-                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" @error('password_confirmation') is-invalid @enderror name="password_confirmation" placeholder="confirm password">
-						<span class="focus-input100"></span>
-					</div>
-                </div>
-            </div>
-			@error('password_confirmation')
-			<div class="alert alert-danger mt-2">
-				{{ $message }}
-			</div>    
-		@enderror
-						<div>
-							<a href="{{ url('login') }}" class="txt1">
-								have account? login here
-							</a>
-						</div>
-					
-
-					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn">
-							Register
-						</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-</x-guest-layout>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script type='text/javascript' src=''></script>
+<script type='text/javascript' src=''></script>
+<script src="reg/app.js"></script>
+</body>
+</html>

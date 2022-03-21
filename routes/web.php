@@ -19,15 +19,18 @@ use App\Http\Livewire\Laporan;
 | contains the "web" middleware group. Now create something great!
 */
 Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
+Route::get('lapor', function () {
+    return view('homepage.lapor');
+});
 Route::get('/', function () {
     return view('auth.login');
 });
 // Route::get('test', Test::class);
-Route::get('datadriver', Datadriver::class);
 Route::get('cars', Kendaraan::class);
 Route::get('laporan', Laporan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('datadriver', Datadriver::class);
 
     });
 

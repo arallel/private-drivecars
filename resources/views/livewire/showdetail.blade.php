@@ -28,6 +28,12 @@
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa-solid fa-venus-mars"></i></div>
+                  </div><span></span>
+                  <input type="text" class="form-control" wire:model="contact">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa-solid fa-house"></i></div>
                   </div><span></span>
                   <input type="text" class="form-control" wire:model="tempat_lahir">
