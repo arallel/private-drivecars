@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Datadriver;
 
 use Livewire\Component;
 use App\Models\User;
 
-class Datadriver extends Component
+class Driver extends Component
 {
     public $users, $email, $name, $gender, $status,$ktp, $tempat_lahir, $tanggal_lahir, $provinsi, $kabupaten, $kecamatan, $alamat,$contatct;
     public $isModalOpen = 0;
     public function render()
     {
+        
         $this->users = User::all();
-        return view('livewire.datadriver');
+        return view('livewire.datadriver.driver');
     }
+   
     public function openModalPopover()
     {
         $this->isModalOpen = true;
@@ -40,6 +42,4 @@ class Datadriver extends Component
 
         $this->openModalPopover();
     }
-    //crud
-    
 }

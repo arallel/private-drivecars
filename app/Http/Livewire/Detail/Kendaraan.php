@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Detail;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -21,9 +21,9 @@ class Kendaraan extends Component
     public function render()
     {
         $this->cars = Cars::all();
-        return view('livewire.kendaraan');
+        return view('livewire.detail.kendaraan');
     }
-    //modal 
+        //modal 
     public function openModalPopover()
     {
         $this->ModalOpen = true;
@@ -147,4 +147,5 @@ class Kendaraan extends Component
            ]);
         
     }
+
 }

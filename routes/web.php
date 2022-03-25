@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\showcontroller;
-use App\Http\Livewire\Datadriver;
-use App\Http\Livewire\Kendaraan;
-use App\Http\Livewire\Users;
-use App\Http\Livewire\Laporan;
+// use App\Http\Livewire\Datadriver;
+use App\Http\Livewire\detail\Kendaraan;
+use App\Http\Livewire\Datadriver\Driver;
+use App\Http\Livewire\laporan\Datalaporan;
 use App\Http\Controllers\Lapor;
 // use App\Http\Livewire\laporuser;
 
@@ -26,17 +26,18 @@ Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
 Route::get('home',function(){
     return view('home');
 });
-Route::resource('lapor',Lapor::class);
+Route::resource('lapor',Datalapor::class);
 // Route::get('lapor', laporuser::class);
 Route::get('/', function () {
     return view('auth.login');
 });
 // Route::get('test', Test::class);
-Route::get('cars', Kendaraan::class);
-Route::get('laporan', Laporan::class);
+
+Route::get('laporan', Datalaporan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('datadriver', Datadriver::class);
+    Route::get('cars', Kendaraan::class);
+    Route::get('datadriver', Driver::class);
 
     });
 
