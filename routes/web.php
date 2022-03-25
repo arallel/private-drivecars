@@ -7,7 +7,8 @@ use App\Http\Livewire\Datadriver;
 use App\Http\Livewire\Kendaraan;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Laporan;
-
+use App\Http\Controllers\Lapor;
+// use App\Http\Livewire\laporuser;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,14 @@ use App\Http\Livewire\Laporan;
 | contains the "web" middleware group. Now create something great!
 */
 Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
-Route::get('lapor', function () {
-    return view('homepage.lapor');
+// Route::get('lapor', function () {
+//     return view('homepage.lapor');
+// });
+Route::get('home',function(){
+    return view('home');
 });
+Route::resource('lapor',Lapor::class);
+// Route::get('lapor', laporuser::class);
 Route::get('/', function () {
     return view('auth.login');
 });

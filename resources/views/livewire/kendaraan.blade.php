@@ -1,3 +1,4 @@
+
 <div class="content">
 <div wire:poll.keep-alive>
   <div class="row">

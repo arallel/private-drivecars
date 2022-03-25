@@ -49,7 +49,7 @@
                     <a class="nav-link" href="{{ url('user') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('lapor') }}">Laporan</a>
+                    <a class="nav-link" href="{{ route('lapor.create') }}">Laporan</a>
                 </li>
                 <li class="nav-item"></li>
                     <a class="nav-link" href="contact.html">Contact</a>
