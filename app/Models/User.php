@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'ktp',
+        'contact',
         'gender',
         'tempat_lahir',
         'tanggal_lahir',

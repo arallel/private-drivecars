@@ -24,6 +24,15 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
+            'ktp'=> ['required', 'max:255'],
+            'contact' => ['required'],
+            'gender'=> ['required', 'max:255'],
+            'tempat_lahir'=> ['required'],
+            'tanggal_lahir'=> ['required'],
+            'provinsi'=> ['required'],
+            'kabupaten'=> ['required'],
+            'kecamatan'=> ['required'],
+            'alamat'=> ['required'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
@@ -31,6 +40,15 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'ktp' => $input['ktp'],
+            'contact' =>$input['contact'],
+            'gender' => $input['gender'],
+            'tempat_lahir' => $input['tempat_lahir'],
+            'tanggal_lahir' => $input['tanggal_lahir'],
+            'provinsi' => $input['provinsi'],
+            'kabupaten' => $input['kabupaten'],
+            'kecamatan' => $input['kecamatan'],
+            'alamat' => $input['alamat'],
         ]);
     }
 }
