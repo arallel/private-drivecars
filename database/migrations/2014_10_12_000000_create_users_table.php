@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('idcars')->nullable();
             $table->integer('ktp')->unique();
+            $table->string('nocontact')->nullable();
             $table->string('name');
             $table->string('gender');
             $table->string('contact')->unique();

@@ -35,7 +35,7 @@ class User extends Authenticatable
         'provinsi',
         'kabupaten',
         'kecamatan',
-        'alamat',
+        'alamat'
     ];
 
     /**
