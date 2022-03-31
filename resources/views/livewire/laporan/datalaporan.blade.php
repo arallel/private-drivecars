@@ -6,6 +6,9 @@
             <div class="card-header">
             <h4 class="card-title text-center">Laporan</h4>
           </div>
+          @if($isModalOpen)
+          @include('livewire.laporan.detaillaporan')
+          @endif
           <?php $i = 0; ?>
           <div class="card-body">
             <div class="table-responsive">
@@ -13,15 +16,34 @@
                 <thead class=" text-primary">
                 <tr>
                     <th>No</th>
-                    
+                    <th>spedometer sebelum</th>
+                    <th>spedometer sesudah</th>
+                    <th>keterangan</th>
+                    <th>tanggal keberangkatan</th>
+                    <th>tanggal kembali</th>
+                    <th>Total Km</th>
+                    <th>total liter</th>
+                    {{-- <th>detail</th> --}}
                 </tr>
                 </thead>
                 <tbody>
-                  {{-- @foreach ($ as $) --}}
+                  @foreach ($laporans as $laporan)
                   <tr>
-            
-                  </tr>           
-                   {{-- @endforeach --}}
+                      <td>{{ ++$i }}</td>
+                      <td class="text-center"><img src="{{ asset('storage/' . $laporan->spedometersblm) }}" width="150" height="100"></td>
+                      <td class="text-center"><img src="{{ asset('storage/' . $laporan->spedometersudah) }}" width="150" height="100"></td>
+                      <td>
+                        <textarea  rows="5">{{ $laporan->keterangan }}</textarea>
+                      </td>
+                      <td>{{ $laporan->tglberangkat }}</td>
+                      <td>{{ $laporan->tglkembali }}</td>
+                      <td>{{ $laporan->totalkm }}</td>
+                      <td>{{ $laporan->liter }}</td>
+                      {{-- <td><button wire:click="show({{ $laporan->id }})"
+                        class="btn btn-info"><i class="fa-solid fa-eye"></i></button></td> --}}
+                  </tr>
+                  
+                @endforeach
                 </tbody>
               </table>
             </div>
