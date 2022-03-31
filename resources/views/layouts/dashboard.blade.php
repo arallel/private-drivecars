@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
   <title>
-    Dashboard
+    Data Drive Cars
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -26,16 +26,16 @@
 </head>
 
 <body class="">
-  <div class="sidebar" data-color="orange">
+  <div class="sidebar" data-color="blue">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+        <a href="http://127.0.0.1:8000/dashboard" class="simple-text logo-mini">
+          DC
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+        <a href="http://127.0.0.1:8000/dashboard" class="simple-text logo-normal">
+          Data Drive Cars
         </a>
       </div>
       @include('layouts.sidebar')

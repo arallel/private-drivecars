@@ -10,10 +10,10 @@
       </head>
       
      
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Data Drive Cars') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://s.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -37,16 +37,16 @@
     </head>
     <body class="font-sans antialiased">
       <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
+        <div class="sidebar" data-color="blue">
             <!--
               Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
              -->
             <div class="logo">
-              <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                CT
+              <a href="#" class="simple-text logo-mini">
+                DC
               </a>
-              <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+              <a href="#" class="simple-text logo-normal">
+                Data Drive Cars
               </a>
               
             </div>

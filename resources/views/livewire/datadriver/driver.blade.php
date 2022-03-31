@@ -3,7 +3,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header text-center" >
-          <h4 class="card-title">Driver Table</h4>
+          <h4 class="card-title"Drive Cars Table</h4>
         </div>
         @if($isModalOpen)
         @include('livewire.datadriver.showdetail')

@@ -8,8 +8,8 @@ html {
 }
 
 #grad1 {
-    background-color: : #9C27B0;
-    background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+    background-color: #4d75cc;
+    background-image: linear-gradient(120deg, #4d75cc, #81D4FA)
 }
 
 #msform {
@@ -60,7 +60,7 @@ html {
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: 'Lato', sans-serif;
     color: #2C3E50;
     font-size: 16px;
     letter-spacing: 1px
@@ -157,22 +157,22 @@ select.list-dt:focus {
 }
 
 #progressbar #account:before {
-    font-family: FontAwesome;
+    font-family: 'Work Sans', sans-serif;
     content: "\f023"
 }
 
 #progressbar #personal:before {
-    font-family: FontAwesome;
+    font-family: 'Work Sans', sans-serif;
     content: "\f007"
 }
 
 #progressbar #alamat:before {
-    font-family: FontAwesome;
+    font-family: 'Work Sans', sans-serif;
     content: "\f5a0"
 }
 
 #progressbar #confirm:before {
-    font-family: FontAwesome;
+    font-family: 'Work Sans', sans-serif;
     content: "\f00c"
 }
 

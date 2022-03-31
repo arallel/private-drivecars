@@ -8,8 +8,8 @@
     <div class="col-lg-4">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Global Sales</h5>
-          <h4 class="card-title">Shipped Products</h4>
+          <h5 class="card-category">Data Tersimpan</h5>
+          {{--  <h4 class="card-title">Shipped Products</h4>  --}}
           <div class="dropdown">
             <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
               <i class="now-ui-icons loader_gear"></i>
@@ -37,8 +37,8 @@
     <div class="col-lg-4 col-md-6">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">2018 Sales</h5>
-          <h4 class="card-title">All products</h4>
+          <h5 class="card-category">Penggunaan Website</h5>
+          {{--  <h4 class="card-title">All products</h4>  --}}
           <div class="dropdown">
             <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
               <i class="now-ui-icons loader_gear"></i>
@@ -66,12 +66,13 @@
     <div class="col-lg-4 col-md-6">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Email Statistics</h5>
-          <h4 class="card-title">24 Hours Performance</h4>
+          <h5 class="card-category">Update Lokasi</h5>
+          {{--  <h4 class="card-title">24 Hours Performance</h4>  --}}
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <canvas id="barChartSimpleGradientsNumbers"></canvas>
+            <iframe src=”https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.4789497984!2d106.829518!3d-6.229746499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C+Daerah+Khusus+Ibukota+Jak!5e0!3m2!1sid!2sid!4v1425776065340″ width=”600″ height=”450″ frameborder=”0″ style=”border:0″></iframe>
+          
           </div>
         </div>
         <div class="card-footer">
@@ -86,8 +87,8 @@
     <div class="col-md-6">
       <div class="card  card-tasks">
         <div class="card-header ">
-          <h5 class="card-category">Backend development</h5>
-          <h4 class="card-title">Tasks</h4>
+          <h5 class="card-category">Drive Cars</h5>
+          <h4 class="card-title">Describec</h4>
         </div>
         <div class="card-body ">
           <div class="table-full-width table-responsive">
