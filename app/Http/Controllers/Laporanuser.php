@@ -24,7 +24,7 @@ class Laporanuser extends Controller
             'spedometersudah' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'keterangan' => 'required',
             'tglberangkat' => 'required',
-            'tglkembali' => 'required|date|after:tglberangkat',
+            'tglkembali' => 'required',
             'totalkm' => 'required',
             'liter' => 'required',
         ]);

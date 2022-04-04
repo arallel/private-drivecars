@@ -65,10 +65,10 @@
                             <span class="lnr lnr-magnifier"></span>
                         </a>
                     </li>
-                    {{-- <a href="{{ route('logout') }}" style="cursor: pointer" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" class="btn btn-md btn-primary">LOGOUT</a>
+                    <!-- {{-- <a href="{{ route('logout') }}" style="cursor: pointer" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();" class="btn btn-md btn-danger">LOGOUT</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">  
-                </form> --}}
+                </form> --}} -->
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="btn btn-md btn-primary">
