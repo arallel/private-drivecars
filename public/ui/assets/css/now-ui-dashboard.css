@@ -1,4 +1,4 @@
-/*!
+!
 
  =========================================================
  * Now UI Dashboard - v1.5.0
@@ -807,13 +807,68 @@ fieldset[disabled] .btn-warning.active {
     border-color: #FFB236;
 }
 
-.btn-warning.btn-link {
+/*test*/
+.btn-infonew {
+    background-color: #1273fc;
+    color: #FFFFFF;
+}
+
+.btn-infonew:hover,
+.btn-infonew:focus,
+.btn-infonew:not(:disabled):not(.disabled):active,
+.btn-infonew:not(:disabled):not(.disabled).active,
+.btn-infonew:not(:disabled):not(.disabled):active:focus,
+.btn-infonew:not(:disabled):not(.disabled).active:focus,
+.btn-infonew:active:hover,
+.btn-infonew.active:hover,
+.show>.btn-infonew.dropdown-toggle,
+.show>.btn-infonew.dropdown-toggle:focus,
+.show>.btn-infonew.dropdown-toggle:hover {
+    background-color: #043e8f;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ffbe55;
+}
+
+.btn-infonew:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.btn-infonew.disabled,
+.btn-infonew.disabled:hover,
+.btn-infonew.disabled:focus,
+.btn-infonew.disabled.focus,
+.btn-infonew.disabled:active,
+.btn-infonew.disabled.active,
+.btn-infonew:disabled,
+.btn-infonew:disabled:hover,
+.btn-infonew:disabled:focus,
+.btn-infonew:disabled.focus,
+.btn-infonew:disabled:active,
+.btn-infonew:disabled.active,
+.btn-infonew[disabled],
+.btn-infonew[disabled]:hover,
+.btn-infonew[disabled]:focus,
+.btn-infonew[disabled].focus,
+.btn-infonew[disabled]:active,
+.btn-infonew[disabled].active,
+fieldset[disabled] .btn-infonew,
+fieldset[disabled] .btn-infonew:hover,
+fieldset[disabled] .btn-infonew:focus,
+fieldset[disabled] .btn-infonew.focus,
+fieldset[disabled] .btn-infonew:active,
+fieldset[disabled] .btn-infonew.active {
+    background-color: #FFB236;
+    border-color: #FFB236;
+}
+
+.btn-infonew.btn-link {
     color: #FFB236;
 }
 
-.btn-warning.btn-link:hover,
-.btn-warning.btn-link:focus,
-.btn-warning.btn-link:active {
+.btn-infonew.btn-link:hover,
+.btn-infonew.btn-link:focus,
+.btn-infonew.btn-link:active {
     background-color: transparent;
     color: #ffbe55;
     text-decoration: none;
@@ -5795,4 +5850,4 @@ Created using IcoMoon - icomoon.io
 }
 
 
-/*# sourceMappingURL=dashboard-free.css.map */
+/*# sourceMappingURL=dashboard-free.css.map 

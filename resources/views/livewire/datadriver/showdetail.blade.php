@@ -75,7 +75,7 @@
                   <input type="text" class="form-control" wire:model="status">
                 </div>
               </form>
-              <button wire:click="closeModalPopover()" class="btn btn-primary">Cancel</button>
+              <button wire:click="closeModalPopover()" class="btn btn-primary">Tutup</button>
         </div>
     </div>
 </div>              

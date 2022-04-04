@@ -40,7 +40,7 @@
                       <td>{{ $laporan->totalkm }}</td>
                       <td>{{ $laporan->liter }}</td>
                       {{-- <td><button wire:click="show({{ $laporan->id }})"
-                        class="btn btn-info"><i class="fa-solid fa-eye"></i></button></td> --}}
+                        class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button></td> --}}
                   </tr>
                   
                 @endforeach

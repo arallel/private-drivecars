@@ -31,7 +31,7 @@
                     <td class="text-center">{{ $user->gender }}</td>
                     <td class="text-center">{{ $user->status }}</td>
                     <td><button wire:click="show({{ $user->id }})"
-                      class="btn btn-info"><i class="fa-solid fa-eye"></i></button></td>
+                      class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button></td>
                 </tr>
               @endforeach
               </tbody>

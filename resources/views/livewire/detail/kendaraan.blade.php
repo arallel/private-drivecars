@@ -43,7 +43,7 @@
                       {{-- <td>{!! QrCode::size(100)->format('svg')->generate($car->id.$car->warna.$car->platmobil.$car->nostnk.$car->nobpkb.$car->merkkendaraan.$car->bahanbakar)  !!} </td> --}}
                        {{-- <td><div class="test"></div></td> --}}
                       <td><button wire:click="show({{ $car->id }})"
-                        class="btn btn-info"><i class="fa-solid fa-eye"></i></button> 
+                        class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button> 
                         <button wire:click="edit({{ $car->id }})"
                           class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
                           <button wire:click="delete({{ $car->id }})"
