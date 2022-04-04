@@ -16,7 +16,7 @@
            
             <div class="input-group">
               <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="input-group-text"><i class="fa-solid fa-cars"></i></div>
               </div><span></span>
               <input type="file" placeholder="Photo kendaraan"  @error('filecar') is-invalid @enderror class="form-control" wire:model="filecar">
             </div>
@@ -27,7 +27,7 @@
           @enderror
             <div class="input-group">
               <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="input-group-text"><i class="fa-solid fa-car"></i></div>
               </div><span></span>
               <input type="text" placeholder="Merk kendaraan"  @error('merkkendaraan') is-invalid @enderror class="form-control" wire:model="merkkendaraan">
             </div>
@@ -50,7 +50,7 @@
 
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa-solid fa-venus-mars"></i></div>
+                    <div class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></div>
                   </div><span></span>
                   <input type="text" placeholder="stnk"  @error('nostnk') is-invalid @enderror class="form-control" wire:model="nostnk">
                 </div>
@@ -62,7 +62,7 @@
 
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa-solid fa-house"></i></div>
+                    <div class="input-group-text"><i class="fa-solid fa-palette"></i></div>
                   </div><span></span>
                   <input type="text" placeholder="Warna"  @error('warna') is-invalid @enderror class="form-control" wire:model="warna">
                 </div>
@@ -74,7 +74,7 @@
 
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></div>
                   </div><span></span>
                   <input type="text" placeholder="Bpkb"  @error('nobpkb') is-invalid @enderror class="form-control" wire:model="nobpkb">
                 </div>
@@ -86,7 +86,7 @@
 
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="input-group-text"><i class="fa-solid fa-gauge"></i></div>
                   </div><span></span>
                   <input type="text" placeholder="total bahan bakar"  @error('bahanbakar') is-invalid @enderror class="form-control" wire:model="bahanbakar">
                 </div>
