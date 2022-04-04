@@ -17,7 +17,7 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <script src="https://kit.fontawesome.com/a554a30ae6.js" crossorigin="anonymous"></script>
+ <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <!-- CSS only -->
 
@@ -25,7 +25,7 @@
   <link href="{{ asset('../ui/assets/css/now-ui-dashboard.css?v=1.5.0') }}" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="font-sans antialiased">
   <div class="sidebar" data-color="blue">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"

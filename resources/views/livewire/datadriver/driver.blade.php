@@ -1,9 +1,10 @@
 <div class="content">
+  <div wire:poll.keep-alive>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header text-center" >
-          <h4 class="card-title"Drive Cars Table</h4>
+          <h4 class="card-title">Drive Cars Table</h4>
         </div>
         @if($isModalOpen)
         @include('livewire.datadriver.showdetail')
@@ -12,6 +13,7 @@
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
+                <tr>
                   <th>No</th>
                   <th>Nama</th>
                   <th>email</th>
@@ -39,4 +41,5 @@
       </div>
     </div> 
   </div> 
+  </div>
   

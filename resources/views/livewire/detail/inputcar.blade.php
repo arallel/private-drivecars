@@ -13,6 +13,10 @@
             <img src="{{ $filecar->temporaryUrl() }}" width="100" height="100">            
             @endif
 
+            <div class="wrap-input1 validate-input">
+                            <input class="input1" type="text" name="KodeBarcode" placeholder="Kode Barcode" value="<?php autonumber(" parkir ", "KodeBarcode ", "4 ", "PARK-") ?>" readonly>
+                            <span class="shadow-input1"></span>
+                        </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>

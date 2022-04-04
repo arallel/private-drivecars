@@ -20,6 +20,7 @@
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section">Laporan</h2>
 				</div>
+				{{-- <button class="btn btn-warning">back</button> --}}
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-lg-10 col-md-12">
@@ -38,7 +39,7 @@
 								<div class="contact-wrap">
 									
 									{{-- <div id="form-message-warning" class="mb-4 w-100 text-center"></div>  --}}
-									<form action="{{ route('lapor.store') }}" method="POST" enctype="multipart/form-data"  class="contactForm">
+									<form action="{{ Route('laporanuser.store') }}" method="POST" enctype="multipart/form-data"  class="contactForm">
 											@csrf
 										<div class="row">
 											<div class="col-md-12">
@@ -48,61 +49,76 @@
 												</div>
 												@error('spdeometersblm')
 												<div class="alert alert-danger mt-2">
-												  {{ $message }}
+													Tolong masukan spedometer 
 												</div>    
 											  @enderror
 											</div>
                                              <div class="col-md-12">
 												<div class="form-group">
 													<span><strong>spedometer setelah berangkat</strong></span>
-													<input type="file" class="form-control" name="spedometersudah" id="name" placeholder="spedometersudah">
+													<input type="file" class="form-control" @error('spedometersudah') is-invalid @enderror name="spedometersudah" id="name" placeholder="spedometersudah">
 												</div>
 											</div>
-											@error('1')
+											@error('spedometersudah')
 											<div class="alert alert-danger mt-2">
-											  {{ $message }}
+												Tolong masukan spedometer 
 											</div>    
 										  @enderror
                                            <div class="col-md-12">
 												<div class="form-group">
 													<span><strong>keterangan</strong></span>
-													<textarea name="keterangan" class="form-control" id="message" cols="30" rows="8" placeholder="Keterangan"></textarea>
+													<textarea name="keterangan" @error('keterangan') is-invalid @enderror class="form-control" id="message" cols="30" rows="8" placeholder="Keterangan"></textarea>
 												</div>
 											</div>
-											@error('1')
+											@error('keterangan')
 											<div class="alert alert-danger mt-2">
-											  {{ $message }}
+												Tolong masukan Keterangan
 											</div>    
 										  @enderror
                                             <div class="col-md-12">
 												<div class="form-group">
 													<span><strong>tanggal keberangkatan</strong></span>
-													<input type="date" class="form-control" name="tglberangkat" id="name" placeholder="tglberangkat">
+													<input type="date" class="form-control" @error('tglberangkat') is-invalid @enderror name="tglberangkat" id="name" placeholder="tglberangkat">
 												</div>
 											</div>
-											@error('1')
+											@error('tglberangkat')
 											<div class="alert alert-danger mt-2">
-											  {{ $message }}
+												Tolong masukan Tanggal Berangkat Kendaraan
 											</div>    
 										  @enderror
 											<div class="col-md-12"> 
 												<div class="form-group">
 													<span><strong>tanggal kembali</strong></span>
-													<input type="date" class="form-control" name="tglkembali" id="name" placeholder="date">
+													<input type="date" class="form-control" @error('tglkembali') is-invalid @enderror name="tglkembali" id="name" placeholder="date">
 												</div>
 											</div>
+											@error('tglkembali')
+											<div class="alert alert-danger mt-2">
+												Tolong masukan Tanggal Kembali Kendaraan
+											</div>    
+										  @enderror
 											<div class="col-md-12">
 												<div class="form-group">
 													<span><strong>total jarak yang di tempuh</strong></span>
-													<input type="text" class="form-control" name="totalkm" id="subject" placeholder="total km">
+													<input type="text" class="form-control" @error('totalkm') is-invalid @enderror name="totalkm" id="subject" placeholder="total km">
 												</div>
 											</div>
+											@error('totalkm')
+											<div class="alert alert-danger mt-2">
+												Tolong masukan total KM
+											</div>    
+										  @enderror
 											<div class="col-md-12">
 												<div class="form-group">
 													<span><strong>total Liter bensin yang digunakan</strong></span>
-													<input type="text" class="form-control" name="liter" id="subject" placeholder="liter">
+													<input type="text" class="form-control" @error('liter') is-invalid @enderror name="liter" id="subject" placeholder="liter">
 												</div>
 											</div>
+											@error('liter')
+											<div class="alert alert-danger mt-2">
+											  Tolong masukan total Liter
+											</div>    
+										  @enderror
 											<div class="col-md-12">
 												<div class="form-group">
 													<button type="submit" class="btn btn-primary">input</button>

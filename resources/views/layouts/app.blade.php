@@ -21,7 +21,7 @@
         <!-- CSS Files -->
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/a554a30ae6.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <!-- CSS only -->
     
@@ -48,14 +48,11 @@
               <a href="#" class="simple-text logo-normal">
                 Data Drive Cars
               </a>
-              
             </div>
            
             <main>
-              @include('layouts.sidebar')                        
-              @yield('isi')
+              @include('layouts.sidebar')                       
                 {{ $slot }}
-  
             </main>
             <footer class="footer">
               <div class=" container-fluid ">
@@ -110,13 +107,6 @@
              <!-- JavaScript Bundle with Popper -->
              <script src="../ui/assets/demo/demo.js"></script>
              @livewireScripts
-             {{-- <script>
-              window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                  $(this).remove(); 
-                });
-              }, 5000);
-             </script> --}}
              <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
              <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
              <x-livewire-alert::flash /> 

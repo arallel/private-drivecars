@@ -55,9 +55,9 @@
                         <a class="nav-link" href="{{ url('datadriver') }}">Datadriver</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('lapor.create') }}">Laporan</a>
+                        <a class="nav-link" href="{{ url('laporanuser') }}">Laporan</a>
                     </li>
-                    {{--  <li class="nav-item"></li>
+                     {{-- <li class="nav-item"></li>
                     <a class="nav-link" href="{{ url('lapor.create') }}">Laporan</a>
                     </li>  --}}
                     <li class="nav-item">

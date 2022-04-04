@@ -1,4 +1,3 @@
-
 <div class="content">
     <div wire:poll.keep-alive>
       <div class="row">
@@ -9,9 +8,6 @@
           </div>
           <button wire:click="create()"
             class="btn btn-info">create</button>
-            {{-- <button wire:click="increment()"
-            class="btn btn-info">test</button>
-            <h1>{{ $count }}</h1> --}}
           @if($bukacreate)
             @include('livewire.detail.inputcar')
           @endif
