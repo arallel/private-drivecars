@@ -105,7 +105,7 @@
                 </p>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Profile</a>
+                <!-- <a class="dropdown-item" href="#">Profile</a> -->
                 <a class="dropdown-item" href="http://127.0.0.1:8000/Dashboard">Menu Utama</a>
                 <a class="dropdown-item" href="/">Log Out</a>
               </div>
