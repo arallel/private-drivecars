@@ -48,18 +48,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="home">Home</a>
                     </li>
-                    <li class="nav-item">
+                   <!--  <li class="nav-item">
                         <a class="nav-link" href="{{ url('user') }}">Profile</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('datadriver') }}">Datadriver</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('laporanuser') }}">Laporan</a>
                     </li>
-                     {{-- <li class="nav-item"></li>
-                    <a class="nav-link" href="{{ url('lapor.create') }}">Laporan</a>
-                    </li>  --}}
+                    
                     <li class="nav-item">
                         <a id="side-search-open" class="nav-link" href="#">
                             <span class="lnr lnr-magnifier"></span>

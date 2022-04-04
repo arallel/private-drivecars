@@ -6,20 +6,6 @@
           <p>Dashboard</p>
         </a>
       </li>
-      {{-- <a href="{{ route('logout') }}" style="cursor: pointer" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();" class="btn btn-md btn-primary">LOGOUT</a>
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-      </form> --}}
-      {{-- <form method="POST" action="{{ route('logout') }}">
-        @csrf
-
-        <x-jet-dropdown-link href="{{ route('logout') }}"
-                 onclick="event.preventDefault();
-                        this.closest('form').submit();">
-            {{ __('Log Out') }}
-        </x-jet-dropdown-link>
-    </form> --}}
       <li {{{ (Request::is('datadriver') ? 'class=active' : '') }}} >
         <a href="{{ url('datadriver') }}">
           <i class="now-ui-icons users_single-02"></i>

@@ -22,7 +22,7 @@ Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
 Route::get('Laporanuser', function () {
     return view('homepage.lapor');
 });
-Route::get('home',function(){
+Route::get('homepage',function(){
     return view('home');
 });
 

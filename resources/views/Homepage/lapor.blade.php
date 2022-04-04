@@ -20,7 +20,6 @@
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section">Laporan</h2>
 				</div>
-				{{-- <button class="btn btn-warning">back</button> --}}
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-lg-10 col-md-12">
@@ -122,10 +121,12 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<button type="submit" class="btn btn-primary">input</button>
+	                        
 												</div>
 											</div>
 										</div>
 									</form>
+										<a href="{{url('homepage')}}" class="btn btn btn-warning">back</a>
 								</div>
 							</div>
 						</div>
