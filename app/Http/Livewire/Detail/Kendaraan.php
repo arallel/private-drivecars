@@ -88,7 +88,7 @@ class Kendaraan extends Component
             'nobpkb' => 'required',
             'merkkendaraan' => 'required',
             'bahanbakar' => 'required|min:4',
-            'filecar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
     
         Cars::updateOrCreate(['id' => $this->cars_id], [
@@ -112,14 +112,9 @@ class Kendaraan extends Component
         $this->tutupcreate();
     }
 
-    public function generate()
+    public function update($id)
     {
-        $this->alert('success', 'test', [
-            'position' => 'center',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-           ]);
+       
     }
 
     public function edit($id)
