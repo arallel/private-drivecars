@@ -55,7 +55,7 @@
                         <a class="nav-link" href="{{ url('dashboard') }}">Dashboard Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('laporanuser') }}">Laporan</a>
+                        <a class="nav-link" href="{{ route('laporanuser.create') }}">Laporan</a>
                     </li>
                     
                     <li class="nav-item">

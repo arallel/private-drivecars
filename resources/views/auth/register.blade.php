@@ -33,13 +33,13 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Account Information</h2> 
-									<input type="email" @error('email') is-invalid @enderror name="email" placeholder="Email" /> 
+									<input type="email" @error('email') is-invalid @enderror name="email" value="{{ old('email') }}" placeholder="Email" /> 
 							@error('email')
 							<div class="alert alert-danger mt-2">
 								{{ $message }}
 							</div>    
 						@enderror
-									<input type="text"  @error('name') is-invalid @enderror name="name" placeholder="Nama" /> 
+									<input type="text"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" placeholder="Nama" /> 
 									@error('name')
 								<div class="alert alert-danger mt-2">
 									{{ $message }}
@@ -67,20 +67,20 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Personal Information</h2> 
-									<input type="text" @error('ktp') is-invalid @enderror name="ktp"  placeholder="No Ktp" /> 
+									<input type="text" @error('ktp') is-invalid @enderror name="ktp" value="{{ old('ktp') }}" placeholder="No Ktp" /> 
                                     @error('ktp')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
 									<div class="row">
-                                        <div class="col-9"> <select class="list-dt" id="month" name="gender">
+                                        <div class="col-9"> <select class="list-dt" id="month" value="{{ old('gender') }}" name="gender">
                                                 <option>Laki-Laki</option>
                                                 <option>Perempuan</option>
                                             </select> 
 										</div>
                                     </div> <br>
-									<input type="text" @error('contact') is-invalid @enderror name="contact"  placeholder="No hp" /> 
+									<input type="text" @error('contact') is-invalid @enderror name="contact" value="{{ old('contact') }}" placeholder="No hp" /> 
                                     @error('contact')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
@@ -91,37 +91,37 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">alamat Information</h2>
-                                    <input type="text" @error('tempat_lahir') is-invalid @enderror name="tempat_lahir"  placeholder="tempat lahir" /> 
+                                    <input type="text" @error('tempat_lahir') is-invalid @enderror value="{{ old('tempat_lahir') }}" name="tempat_lahir"  placeholder="tempat lahir" /> 
                                     @error('tempat_lahir')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
-                                 <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir"  placeholder="tanggal lahir" /> 
+                                 <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"  placeholder="tanggal lahir" /> 
                                     @error('tanggal_lahir')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
-                                 <input type="text" @error('provinsi') is-invalid @enderror name="provinsi"  placeholder="provinsi" /> 
+                                 <input type="text" @error('provinsi') is-invalid @enderror name="provinsi" value="{{ old('email') }}" placeholder="provinsi" /> 
                                     @error('provinsi')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
-                                 <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten"  placeholder="kabupaten" /> 
+                                 <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten" value="{{ old('kabupaten') }}" placeholder="kabupaten" /> 
                                     @error('kabupaten')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
-                                 <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan"  placeholder="kecamatan" /> 
+                                 <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan" value="{{ old('kecamatan') }}" placeholder="kecamatan" /> 
                                     @error('kecamatan')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}
 									</div>    
 								@enderror 
-                                 <input type="text" @error('alamat') is-invalid @enderror name="alamat"  placeholder="alamat" /> 
+                                 <input type="text" value="{{ old('alamat') }}" @error('alamat') is-invalid @enderror name="alamat"  placeholder="alamat" /> 
                                     @error('alamat')
 									<div class="alert alert-danger mt-2">
 										{{ $message }}

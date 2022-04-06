@@ -18,7 +18,7 @@
                   <th>Nama</th>
                   <th>email</th>
                   <th class="text-center">Gender</th>
-                  <th class="text-center">Status pegawai</th>
+                  <th class="text-left">Status pegawai</th>
                   <th>Detail</th>
               </tr>
               </thead>
@@ -29,7 +29,7 @@
                     <td>{{ $user->name }}</td> 
                     <td>{{ $user->email }}</td>
                     <td class="text-center">{{ $user->gender }}</td>
-                    <td class="text-center"> 
+                    <td class="text-left"> 
                       @if($user->status == 3)
                          <img src="ui/assets/img/active.png">
                       @else 

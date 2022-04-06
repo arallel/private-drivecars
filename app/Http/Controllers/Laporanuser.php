@@ -11,7 +11,7 @@ class Laporanuser extends Controller
 {
     public function index()
     {
-    return view('Homepage.lapor');
+    return view('home');
     }
     public function create()
     {
@@ -45,6 +45,6 @@ class Laporanuser extends Controller
           'liter' => $request->liter,
         ]);
         
-        return redirect()->route('lapor.index');
+        return redirect()->route('laporanuser.index');
     }
 }

@@ -58,8 +58,9 @@
                          type: 'image'
                         // other options
                       });</script>
-                  </tr>       
                   @endforeach
+                  </tr>       
+                  
                 </tbody>
               </table>
             </div>

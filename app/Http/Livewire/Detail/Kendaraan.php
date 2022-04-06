@@ -91,7 +91,7 @@ class Kendaraan extends Component
             'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
     
-        Cars::Create(['id' => $this->cars_id], [
+        Cars::updateOrCreate(['id' => $this->cars_id], [
             'platmobil' => $this->platmobil,
             'nostnk' =>$this->nostnk,
             'warna' =>$this->warna,

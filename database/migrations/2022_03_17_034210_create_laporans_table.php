@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
             $table->string('spedometersblm');
-            $table->string('spedometersudah')->nullable();
-            $table->string('keterangan')->nullable();
-            $table->string('tglberangkat')->nullable();
-            $table->string('tglkembali')->nullable();
-            $table->string('totalkm')->nullable();
-            $table->string('liter')->nullable();
+            $table->string('spedometersudah');
+            $table->string('keterangan');
+            $table->string('tglberangkat');
+            $table->string('tglkembali');
+            $table->string('totalkm');
+            $table->string('liter');
             $table->timestamps();
         });
     }
