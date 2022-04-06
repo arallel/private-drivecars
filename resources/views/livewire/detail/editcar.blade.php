@@ -8,11 +8,11 @@
             <h5 class="modal-title w-100">Edit</h5> 
           </div><br>
           <form>
-            @if($filecar)
+<!--             @if($filecar)
             <div class="text-center">
               <img src="{{ asset('storage/' . $filecar) }}" class="rounded"  width="150" height="150">
             </div><br>
-            @endif
+            @endif -->
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>

@@ -91,7 +91,7 @@ class Kendaraan extends Component
             'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
     
-        Cars::updateOrCreate(['id' => $this->cars_id], [
+        Cars::Create(['id' => $this->cars_id], [
             'platmobil' => $this->platmobil,
             'nostnk' =>$this->nostnk,
             'warna' =>$this->warna,
@@ -112,10 +112,52 @@ class Kendaraan extends Component
         $this->tutupcreate();
     }
 
-    public function update($id)
-    {
+    // public function update()
+    // {
+    //      // $this->bukaedit();
+    //    $this->validate([
+    //         'platmobil' => 'required|max:4',
+    //         'nostnk' => 'required',
+    //         'warna' => 'required',
+    //         'nobpkb' => 'required',
+    //         'merkkendaraan' => 'required',
+    //         'bahanbakar' => 'required|min:4',
+    //         // 'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
+    //     ]);
        
-    }
+    //      if($this->id) {
+          
+    //         $car = Cars::find($this->id);
+    //         if($car) {
+    //             $car->update([
+    //                 'platmobil' => $this->platmobil,
+    //                 'nostnk' =>$this->nostnk,
+    //                 'warna' =>$this->warna,
+    //                 'nobpkb' =>$this->nobpkb,
+    //                 'merkkendaraan' =>$this->merkkendaraan,
+    //                 'bahanbakar' => $this->bahanbakar
+    //             ]);
+    //         }
+    //     }
+    //  // $update = Cars::update(['id' => $this->cars_id], [
+    //  //        'platmobil' => $this->platmobil,
+    //  //        'nostnk' =>$this->nostnk,
+    //  //        'warna' =>$this->warna,
+    //  //        'nobpkb' =>$this->nobpkb,
+    //  //        'merkkendaraan' =>$this->merkkendaraan,
+    //  //        'bahanbakar' => $this->bahanbakar,
+    //  //        // 'filecar' =>$this->filecar->store('cars-image'),
+    //  //    ]);
+    //  //  $update->save();
+    //     $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
+    //         'position' => 'center',
+    //         'timer' => 3000,
+    //         'toast' => true,
+    //         'timerProgressBar' => true,
+    //    ]);
+      
+    //     $this->tutupedit();
+    // }
 
     public function edit($id)
     {
@@ -127,7 +169,7 @@ class Kendaraan extends Component
          $this->nobpkb = $cars->nobpkb;
          $this->merkkendaraan = $cars->merkkendaraan;
          $this->bahanbakar = $cars->bahanbakar;
-         $this->filecar = $cars->filecar;
+         // $this->filecar = $cars->filecar;
 
          $this->bukaedit();
     }

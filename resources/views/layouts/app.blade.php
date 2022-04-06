@@ -26,9 +26,13 @@
         <!-- CSS only -->
     
         <link href="{{ asset('../ui/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+        
         <link href="{{ asset('../ui/assets/css/now-ui-dashboard.css?v=1.5.0') }}" rel="stylesheet" />
         <!-- Styles -->
         {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+
+        
+     
 
         @livewireStyles
 
@@ -116,6 +120,16 @@
              demo.initDashboardPageCharts();
              });
             </script>
+            <!-- Magnific Popup core CSS file -->
+            <link rel="stylesheet" href="popupimage/dist/magnific-popup.css">
+
+            <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+             <!-- Magnific Popup core JS file -->
+             <script src="popupimage/dist/jquery.magnific-popup.js"></script>
+
+            
 
         
     </body>

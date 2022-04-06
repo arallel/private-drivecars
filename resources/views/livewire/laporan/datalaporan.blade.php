@@ -33,7 +33,7 @@
                       <td class="text-center"><img src="{{ asset('storage/' . $laporan->spedometersblm) }}" width="150" height="100"></td>
                       <td class="text-center"><img src="{{ asset('storage/' . $laporan->spedometersudah) }}" width="150" height="100"></td>
                       <td>
-                        <textarea  rows="5">{{ $laporan->keterangan }}</textarea>
+                        <textarea  rows="5" readonly>{{ $laporan->keterangan }}</textarea>
                       </td>
                       <td>{{ $laporan->tglberangkat }}</td>
                       <td>{{ $laporan->tglkembali }}</td>

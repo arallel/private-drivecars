@@ -38,36 +38,28 @@
                       <td>{{ $car->merkkendaraan }}</td> 
                       <td>{{ $car->warna }}</td>
                       <td class="text-center">{{ $car->platmobil }}</td>
-                      <td class="text-center"><img src="{{ asset('storage/' . $car->filecar) }}" width="150" height="100"></td>
+                      <td class="text-center"><img class="test-popup-link" src="{{ asset('storage/' . $car->filecar) }}" width="150" height="100"></td>
                       <td><img src="data:image/png;base64,{!! base64_encode( QrCode::size(100)->format('png')->generate($car->id.$car->warna.$car->platmobil.$car->nostnk.$car->nobpkb.$car->merkkendaraan.$car->bahanbakar)) !!}"></td>
-                      {{-- <td>{!! QrCode::size(100)->format('svg')->generate($car->id.$car->warna.$car->platmobil.$car->nostnk.$car->nobpkb.$car->merkkendaraan.$car->bahanbakar)  !!} </td> --}}
-                       {{-- <td><div class="test"></div></td> --}}
+                      
                       <td><button wire:click="show({{ $car->id }})"
                         class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button> 
-                        <button wire:click="edit({{ $car->id }})"
+                        <button wire:click="edit({{$car->id}})"
                           class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
                           <button wire:click="delete({{ $car->id }})"
                             class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                       </td>
-                      {{-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
-                      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" 
-                      crossorigin="anonymous"></script>
-                      <script src="{{ asset('qrcode/dist/jquery-qrcode.js') }}"></script>
                       <script>
-                          $(".test").qrcode({
-                          
-                          // 0: normal
-                          // 1: label strip
-                          // 2: label box
-                          mode: 1,
-                          text:'{{ $car->merkkendaraan }}',
-                          size: 150,
-                          label: '{{ $car->merkkendaraan }}',
-                          fontname: 'sans',
-                          fontcolor: '#000'
-                          
-                          });;</script> --}}
-                  </tr>            @endforeach
+                        $(document).ready(function() {
+                        $('.image-link').magnificPopup({type:'image'});
+                        });
+                      </script>
+                      <script>
+                        $('.test-popup-link').magnificPopup({
+                         type: 'image'
+                        // other options
+                      });</script>
+                  </tr>       
+                  @endforeach
                 </tbody>
               </table>
             </div>

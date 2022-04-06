@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('idcars')->nullable();
             $table->integer('ktp')->unique();
             $table->string('nocontact')->nullable();
             $table->string('name');
@@ -31,7 +30,7 @@ return new class extends Migration
             $table->string('role')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('status')->nullable();
+            $table->string('status')->default(3);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

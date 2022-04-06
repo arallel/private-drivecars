@@ -29,7 +29,13 @@
                     <td>{{ $user->name }}</td> 
                     <td>{{ $user->email }}</td>
                     <td class="text-center">{{ $user->gender }}</td>
-                    <td class="text-center">{{ $user->status }}</td>
+                    <td class="text-center"> 
+                      @if($user->status == 3)
+                         <img src="ui/assets/img/active.png">
+                      @else 
+                       <img src="ui/assets/img/nonactive.png"> 
+                      @endif  
+                    </td>
                     <td><button wire:click="show({{ $user->id }})"
                       class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button></td>
                 </tr>
