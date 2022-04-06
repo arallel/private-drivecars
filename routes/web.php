@@ -25,7 +25,9 @@ Route::get('Laporanuser', function () {
 Route::get('homepage',function(){
     return view('home');
 });
-
+Route::get('test',function(){
+    return view('layouts.profil');
+});
 Route::resource('laporanuser',Laporanuser::class);
 Route::get('/', function () {
     return view('auth.login');

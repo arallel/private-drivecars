@@ -45,6 +45,6 @@ class Laporanuser extends Controller
           'liter' => $request->liter,
         ]);
         
-        return redirect()->route('laporanuser.index');
+        return redirect()->route('laporanuser.index'); 
     }
 }

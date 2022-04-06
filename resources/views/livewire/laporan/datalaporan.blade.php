@@ -23,7 +23,7 @@
                     <th>tanggal kembali</th>
                     <th>Total Km</th>
                     <th>total liter</th>
-                    {{-- <th>detail</th> --}}
+                     <th>detail</th> 
                 </tr>
                 </thead>
                 <tbody>
@@ -39,8 +39,12 @@
                       <td>{{ $laporan->tglkembali }}</td>
                       <td>{{ $laporan->totalkm }}</td>
                       <td>{{ $laporan->liter }}</td>
-                      {{-- <td><button wire:click="show({{ $laporan->id }})"
-                        class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button></td> --}}
+                      <td><button wire:click="show({{ $laporan->id }})"
+                        class="btn btn-infonew"><i class="fa-solid fa-eye"></i></button>
+                         <button wire:click="delete({{ $laporan->id }})"
+                            class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
+                         </button>
+                      </td> 
                   </tr>
                   
                 @endforeach

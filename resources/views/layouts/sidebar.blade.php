@@ -34,13 +34,6 @@
         </a>
       </form>
       </li>
-      <li>
-         <a href="{{ route('profile.show') }}">
-          <i class="now-ui-icons ui-1_bell-53"></i>
-          <p>profile</p>
-        </a>
-          
-      </li>
     </ul>
   </div>
   </div>
@@ -113,7 +106,7 @@
                 </p>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <!-- <a class="dropdown-item" href="#">Profile</a> -->
+                <a class="dropdown-item" href="{{route('profile.show')}}">Profile</a>
                 <a class="dropdown-item" href="http://127.0.0.1:8000/Dashboard">Menu Utama</a>
                 <a class="dropdown-item" href="/">Log Out</a>
               </div>

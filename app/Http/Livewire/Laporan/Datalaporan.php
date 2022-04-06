@@ -4,11 +4,14 @@ namespace App\Http\Livewire\Laporan;
 
 use Livewire\Component;
 use App\Models\Laporan;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Datalaporan extends Component
 {
-    public $laporans,$spedometersblm,$spedometersudah,$keterangan,$tglberangkat,$tglkembali,$totalkm,$liter ;
+    public $laporans,$spedometersblm,$spedometersudah,$keterangan,$tglberangkat,
+    $tglkembali,$totalkm,$liter ;
     public $isModalOpen = 0;
+     use LivewireAlert;
     public function render()
     {
         $this->laporans = Laporan::all();
@@ -35,5 +38,16 @@ class Datalaporan extends Component
         $this->liter = $laporans->liter;
 
         $this->openModalPopover();
+    }
+      public function delete($id)
+    {
+        Laporan::find($id)->delete();
+        $this->alert('success', 'Data berhasil di hapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+           ]);
+        
     }
 }
