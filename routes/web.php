@@ -25,14 +25,14 @@ Route::get('Laporanuser', function () {
 Route::get('homepage',function(){
     return view('home');
 });
-Route::get('test',function(){
-    return view('layouts.profil');
-});
+Route::view('test','Homepage.userprofil')->middleware('auth');
 Route::resource('laporanuser',Laporanuser::class);
 Route::get('/', function () {
     return view('auth.login');
 });
-// Route::get('test', Test::class);
+Route::get('percobaan',function(){
+    return view('test');
+});
 Route::get('cars', Kendaraan::class);
     Route::get('datadriver', Driver::class);
 Route::get('laporan', Datalaporan::class);
@@ -42,6 +42,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     });
 
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+     return view('dashboard');
+})->name('dashboard');
+
+require_once __DIR__ . '/jetstream.php';

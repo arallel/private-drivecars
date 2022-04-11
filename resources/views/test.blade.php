@@ -1,0 +1,1 @@
+<img src="{{ Avatar::create('auth()->user()->name')->toBase64() }}" />

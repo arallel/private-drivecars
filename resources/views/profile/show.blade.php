@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
@@ -28,7 +28,6 @@
 
                 <x-jet-section-border />
             @endif
-
             <div class="mt-10 sm:mt-0">
                 @livewire('profile.logout-other-browser-sessions-form')
             </div>
@@ -42,4 +41,4 @@
             @endif
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>

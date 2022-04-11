@@ -5,10 +5,11 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>Register</title>
 <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" type="text/css" href="('reg/font/css/all.css')"> -->
 <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
- <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
- <link rel="stylesheet" href="reg/app.css">
+ <link rel="stylesheet" href="{{asset('reg/app.css')}}">
 </head>
 <body class='snippet-body'>
 <!-- MultiStep Form -->
