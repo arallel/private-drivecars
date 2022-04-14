@@ -11,28 +11,48 @@
 </head>
 <body>
 <div class="wrapper bg-white mt-sm-5">
-    <form action="{{route('user-profile-information.update')}}" method="POST">
+     <h4 class="pb-4 border-bottom">Account settings</h4>
+     <!-- <div class="d-flex align-items-start py-3 border-bottom"> -->
+      <div class="pl-sm-4 pl-2" id="img-section"><!--  <b>Profile Photo</b> -->
+            <!-- <p>Accepted file type .png. Less than 1MB</p> <input type="file" name="avatar" class="hidden"> -->
+        </div>
+        <!-- <button type="submit" class="btn btn-primary mr-3">Save Changes</button> -->
+    <!-- </div> -->
+    <!-- </form> -->
+  <form action="{{route('user-profile-information.update')}}" method="POST">
     @csrf
     @method('PUT')  
-     <h4 class="pb-4 border-bottom">Account settings</h4>
-     <div class="d-flex align-items-start py-3 border-bottom">  
-      <!--   @if(auth()->user()->profile_photo_path == 'default')
-        <img src="profileuser/img/default.jpg" width="70" height="70">
-        <img src="{{'storage/'}}" width="70" height="70">
-     @endif -->
-      <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
-            <p>Accepted file type .png. Less than 1MB</p> <button class="btn button border"><b>Upload</b></button>
-        </div>
-    </div>
     <div class="py-2">
         <div class="row py-2">
-            <div class="col-md-6"> <label for="name">Name</label> <input type="text" name="name"  value="{{old('name') ?? auth()->user()->name}}" class="bg-light form-control" placeholder=""> </div>
-             <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" name="email" value="{{old('email') ?? auth()->user()->email}}" class="bg-light form-control" placeholder=""> </div>
+            <div class="col-md-6"> <label for="name">Name</label> <input type="text" @error('name') is-invalid @enderror name="name"  value="{{old('name') ?? auth()->user()->name}}" class="bg-light form-control" placeholder=""> </div>
+             <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" name="email" @error('email') is-invalid @enderror value="{{old('email') ?? auth()->user()->email}}" class="bg-light form-control" placeholder="">
+               @error('name')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+                 @error('email')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+              </div>
         </div>
         <div class="row py-2">
-            <div class="col-md-6"> <label for="ktp">Ktp</label> <input type="text" name="ktp"  value="{{old('ktp') ?? auth()->user()->ktp}}" class="bg-light form-control">
+            <div class="col-md-6"> <label for="ktp">Ktp</label> <input type="text" name="ktp" @error('ktp') is-invalid @enderror value="{{old('ktp') ?? auth()->user()->ktp}}" class="bg-light form-control">
             </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Phone Number</label> <input type="tel" name="contact" value="{{old('contact') ?? auth()->user()->contact}}" class="bg-light form-control"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Phone Number</label> <input type="tel" @error('contact') is-invalid @enderror name="contact" value="{{old('contact') ?? auth()->user()->contact}}" class="bg-light form-control">
+             @error('ktp')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+                 @error('contact')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+            </div>
         </div>
         <div class="row py-2">
             <div class="col-md-6"> <label for="gender">gender</label> <select name="gender" id="country" class="bg-light">
@@ -48,24 +68,55 @@
                      }
                      @endif
                 </select> </div>
-              <div class="col-md-6"> <label for="tempat_lahir">tempat lahir</label> <input type="text" name="tempat_lahir"  value="{{old('tempat_lahir') ?? auth()->user()->tempat_lahir}}" class="bg-light form-control">
+              <div class="col-md-6"> <label for="tempat_lahir">tempat lahir</label> <input type="text" name="tempat_lahir" @error('tempat_lahir') is-invalid @enderror value="{{old('tempat_lahir') ?? auth()->user()->tempat_lahir}}" class="bg-light form-control">
+                 @error('tempat_lahir')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
               </div> 
             </div>
         </div>
          <div class="row py-2">
-            <div class="col-md-6"> <label for="tanggal_lahir">tanggal_lahir</label> <input type="date" name="tanggal_lahir"  value="{{old('tanggal_lahir') ?? auth()->user()->tanggal_lahir}}" class="bg-light form-control">
+            <div class="col-md-6"> <label for="tanggal_lahir">tanggal_lahir</label> <input type="date" name="tanggal_lahir" @error('tanggal_lahir') is-invalid @enderror value="{{old('tanggal_lahir') ?? auth()->user()->tanggal_lahir}}" class="bg-light form-control">
+                 @error('tanggal_lahir')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
             </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="provinsi">provinsi</label> <input type="text" name="provinsi" value="{{old('provinsi') ?? auth()->user()->provinsi}}" class="bg-light form-control"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="provinsi">provinsi</label> <input type="text" name="provinsi" @error('provinsi') is-invalid @enderror value="{{old('provinsi') ?? auth()->user()->provinsi}}" class="bg-light form-control">
+             @error('provinsi')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+            </div>
         </div>
          <div class="row py-2">
-            <div class="col-md-6"> <label for="kabupaten">kabupaten</label> <input type="text" name="kabupaten"  value="{{old('kabupaten') ?? auth()->user()->kabupaten}}" class="bg-light form-control">
+            <div class="col-md-6"> <label for="kabupaten">kabupaten</label> <input type="text" name="kabupaten" @error('kabupaten') is-invalid @enderror  value="{{old('kabupaten') ?? auth()->user()->kabupaten}}" class="bg-light form-control">
+                 @error('kabupaten')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
             </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="kecamatan">kecamatan</label> <input type="text" name="kecamatan" value="{{old('kecamatan') ?? auth()->user()->kecamatan}}" class="bg-light form-control"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="kecamatan">kecamatan</label> <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan" value="{{old('kecamatan') ?? auth()->user()->kecamatan}}" class="bg-light form-control">
+             @error('kecamatan')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror
+            </div>
         </div>
          <div class="row justify-content-center">
-            <div class="col-md-6"> <label for="alamat">alamat</label> <input type="text" name="alamat"  value="{{old('alamat') ?? auth()->user()->alamat}}" class="bg-light form-control">
+            <div class="col-md-6"> <label for="alamat">alamat</label> <input type="text" @error('alamat') is-invalid @enderror name="alamat"  value="{{old('alamat') ?? auth()->user()->alamat}}" class="bg-light form-control">
+               @error('alamat')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>    
+                @enderror  
             </div>
-            <!-- <div class="col-md-6 pt-md-0 pt-3"> <label for="alamat">alamat</label> <input type="text" name="alamat" value="{{old('alamat') ?? auth()->user()->alamat}}" class="bg-light form-control"> </div> -->
         </div><br>
         <div class="row justify-content-center"> <button type="submit" class="btn btn-primary mr-3">Save Changes</button> <button class="btn border button">Cancel</button>
         </div>
@@ -76,6 +127,7 @@
             </div>
             <div class="ml-auto"> <button class="btn danger">Deactivate</button> </div> -->
         </div>
+
   </form>  
     <!-- </div> -->
 </div>
@@ -109,11 +161,15 @@
 <div class="wrapper bg-white mt-sm-5">
    <h4 class="pb-4 border-bottom">Log Out Account</h4>
     <div class="d-flex align-items-start py-3 border-bottom">
-         <a href="{{ route('logout') }}"
+          <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="btn btn-md btn-danger">
                         Logout
-         </a> 
+                    </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+          </form>
     </div>  
 </div>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script> 

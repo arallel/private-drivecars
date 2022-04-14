@@ -48,9 +48,9 @@
                    <!--  <li class="nav-item">
                         <a class="nav-link" href="home">Home</a>
                     </li> -->
-                   <!--  <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user') }}">Profile</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profile.show') }}">Profile</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('dashboard') }}">Dashboard Admin</a>
                     </li>

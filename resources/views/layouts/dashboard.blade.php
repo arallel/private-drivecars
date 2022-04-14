@@ -73,7 +73,12 @@
     <script src="../ui/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Google Maps Plugin    -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+   
+    <script src="https://maps.googleapis.com/maps/api/distancematrix/json
+  ?destinations=New%20York%20City%2C%20NY
+  &origins=Washington%2C%20DC
+  &units=imperial
+  &key=AIzaSyDjmP6cvDATkmkyUIMNa1EQ6mWv4e1CsF0"></script>
     <!-- Chart JS -->
     <script src="../ui/assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->

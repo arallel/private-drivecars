@@ -55,7 +55,9 @@
             </div>
            
             <main>
-              @include('layouts.sidebar')                       
+              @include('layouts.sidebar')
+              <div class="panel-header panel-header-sm">
+              </div>                       
                 {{ $slot }}
             </main>
             <footer class="footer">

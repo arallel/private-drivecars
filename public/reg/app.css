@@ -1,3 +1,4 @@
+@import url('https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.1/css/line.css');
 * {
     margin: 0;
     padding: 0
@@ -158,12 +159,12 @@ select.list-dt:focus {
 
 #progressbar #account:before {
     font-family: 'Work Sans', sans-serif;
-    content: "\f023"
+    content: "\ea0d"
 }
 
 #progressbar #personal:before {
     font-family: 'Work Sans', sans-serif;
-    content: "\F146"
+    content: "\ea0d"
 }
 
 #progressbar #alamat:before {

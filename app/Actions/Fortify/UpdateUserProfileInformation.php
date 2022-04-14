@@ -22,15 +22,16 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'avatar' => ['required', 'mimes:jpg,jpeg,png', 'max:1024'],
             'ktp' => ['required','string'],
             'contact' =>['required'],
-            'gender' => ['nullable','string'],	
-            'tempat_lahir' => ['nullable','string'],
-            'tanggal_lahir' => ['nullable','date'],
-            'provinsi'	=> ['nullable','string'],
-            'kabupaten'	=> ['nullable','string'],
-            'kecamatan'	=> ['nullable','string'],
-            'alamat' => ['nullable','string'],
+            'gender' => ['required','string'],	
+            'tempat_lahir' => ['required','string'],
+            'tanggal_lahir' => ['required','date'],
+            'provinsi'	=> ['required','string'],
+            'kabupaten'	=> ['required','string'],
+            'kecamatan'	=> ['required','string'],
+            'alamat' => ['required','string'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -44,6 +45,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'ktp' => $input['ktp'],
+                'avatar' => $input['avatar'],
                 'email' => $input['email'],
                 'contact' => $input['contact'],
                 'gender' =>  $input['gender'],	

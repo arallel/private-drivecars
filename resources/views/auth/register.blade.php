@@ -9,7 +9,8 @@
 <!-- <link rel="stylesheet" type="text/css" href="('reg/font/css/all.css')"> -->
 <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
- <link rel="stylesheet" href="{{asset('reg/app.css')}}">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link rel="stylesheet" href="{{asset('reg/app.css')}}">
 </head>
 <body class='snippet-body'>
 <!-- MultiStep Form -->
@@ -26,7 +27,7 @@
                             @csrf
                             <!-- progressbar -->
                             <ul id="progressbar">
-                                <li class="active" id="account"><strong>Account</strong></li>
+                                <li id="account"><strong> Account</strong></li>
                                 <li id="personal"><strong>Personal</strong></li>
                                 <li id="alamat"><strong>alamat</strong></li>
                                 <li id="confirm"><strong>Finish</strong></li>

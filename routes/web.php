@@ -8,6 +8,7 @@ use App\Http\Livewire\Datadriver\Driver;
 use App\Http\Livewire\laporan\Datalaporan;
 use App\Http\Controllers\lapor;
 use App\Http\Controllers\Laporanuser;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     
 
     });
-
+// Route::get('/profile/photo', UserProfileController::class,'photo');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      return view('dashboard');
 })->name('dashboard');
