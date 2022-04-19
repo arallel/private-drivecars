@@ -8,10 +8,11 @@ use App\Models\Cars;
 use SimpleSoftwareIO\QrCode\Generator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Kendaraan extends Component
 {
-    public $cars ,$platmobil,$nostnk,$warna,$nobpkb,$merkkendaraan,$bahanbakar,$cars_id,$filecar;
+    public $cars ,$platmobil,$nostnk,$warna,$nobpkb,$merkkendaraan,$bahanbakar,$filecar;
     public $ModalOpen = 0;
     public $bukacreate = 0;
     public $bukaedit = 0;
@@ -57,7 +58,7 @@ class Kendaraan extends Component
     public function show($id)
     {
         $cars = Cars::findOrFail($id);
-        $this->id = $id;
+         $this->id = $cars->id;
         $this->platmobil = $cars->platmobil;
         $this->nostnk = $cars->nostnk;
         $this->warna = $cars->warna;
@@ -90,8 +91,7 @@ class Kendaraan extends Component
             'bahanbakar' => 'required|min:4',
             'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
-    
-        Cars::updateOrCreate(['id' => $this->cars_id], [
+        Cars::updateOrCreate(['id' => $this->id], [
             'platmobil' => $this->platmobil,
             'nostnk' =>$this->nostnk,
             'warna' =>$this->warna,
@@ -100,7 +100,7 @@ class Kendaraan extends Component
             'bahanbakar' => $this->bahanbakar,
             'filecar' =>$this->filecar->store('cars-image'),
         ]);
-        $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
+        $this->alert('success',  $this->id ? 'Data updated successfully.' : 'Data added successfully.', [
             'position' => 'center',
             'timer' => 3000,
             'toast' => true,
@@ -139,7 +139,7 @@ class Kendaraan extends Component
     //             ]);
     //         }
     //     }
-    //  // $update = Cars::update(['id' => $this->cars_id], [
+    //  // $update = Cars::update(['id' => $this->id], [
     //  //        'platmobil' => $this->platmobil,
     //  //        'nostnk' =>$this->nostnk,
     //  //        'warna' =>$this->warna,
@@ -149,7 +149,7 @@ class Kendaraan extends Component
     //  //        // 'filecar' =>$this->filecar->store('cars-image'),
     //  //    ]);
     //  //  $update->save();
-    //     $this->alert('success',  $this->cars_id ? 'Data updated successfully.' : 'Data added successfully.', [
+    //     $this->alert('success',  $this->id ? 'Data updated successfully.' : 'Data added successfully.', [
     //         'position' => 'center',
     //         'timer' => 3000,
     //         'toast' => true,
@@ -161,8 +161,8 @@ class Kendaraan extends Component
 
     public function edit($id)
     {
-        $cars = Cars::findOrFail($id);
-        $this->cars_id = $id;
+         $cars = Cars::findOrFail($id);
+         $this->id = $id;
          $this->platmobil = $cars->platmobil;
          $this->nostnk = $cars->nostnk;
          $this->warna = $cars->warna;

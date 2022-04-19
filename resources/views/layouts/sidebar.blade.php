@@ -20,7 +20,7 @@
       </li>
       <li {{{ (Request::is('laporan') ? 'class=active' : '') }}}>
         <a href="{{ url('laporan') }}">
-          <i class="now-ui-icons ui-1_bell-53"></i>
+          <i class="now-ui-icons files_single-copy-04"></i>
           <p>laporan</p>
         </a>
       </li>

@@ -15,14 +15,13 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('cars_id')->nullable();
-            $table->string('filecar')->nullable();
-            $table->integer('platmobil')->nullable();
-            $table->integer('nostnk')->nullable();
-            $table->string('warna')->nullable();
-            $table->integer('nobpkb')->nullable();
-            $table->string('merkkendaraan')->nullable();
-            $table->integer('bahanbakar')->nullable();
+            $table->string('filecar');
+            $table->integer('platmobil');
+            $table->integer('nostnk');
+            $table->string('warna');
+            $table->integer('nobpkb');
+            $table->string('merkkendaraan');
+            $table->integer('bahanbakar');
             $table->timestamps();
         });
     }

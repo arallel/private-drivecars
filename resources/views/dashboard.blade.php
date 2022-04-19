@@ -87,8 +87,8 @@
     <div class="col-md-6">
       <div class="card  card-tasks">
         <div class="card-header ">
-          <h5 class="card-category">Drive Cars</h5>
-          <h4 class="card-title">Describec</h4>
+          <h5 class="card-category">Notification</h5>
+          <h4 class="card-title">Notification</h4>
         </div>
         <div class="card-body ">
           <div class="table-full-width table-responsive">

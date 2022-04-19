@@ -1,5 +1,5 @@
 <div class="content">
-    <div wire:poll.keep-alive>
+    <!-- <div wire:poll.keep-alive> -->
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -7,7 +7,7 @@
             <h4 class="card-title text-center"> Cars Table</h4>
           </div>
           <button wire:click="create()"
-            class="btn btn-info">create</button>
+            class="btn btn-infonew">create</button>
           @if($bukacreate)
             @include('livewire.detail.inputcar')
           @endif
@@ -22,6 +22,7 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
+                  <tr>
                     <th>No</th>
                     <th>Merk Kendaraan</th>
                     <th>Warna</th>
@@ -48,16 +49,6 @@
                           <button wire:click="delete({{ $car->id }})"
                             class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                       </td>
-                      <script>
-                        $(document).ready(function() {
-                        $('.image-link').magnificPopup({type:'image'});
-                        });
-                      </script>
-                      <script>
-                        $('.test-popup-link').magnificPopup({
-                         type: 'image'
-                        // other options
-                      });</script>
                   @endforeach
                   </tr>       
                   
@@ -66,7 +57,7 @@
             </div>
           </div>
         </div>
-      </div> 
+      <!-- </div>  -->
     </div> 
     </div>
     

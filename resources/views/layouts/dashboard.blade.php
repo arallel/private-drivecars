@@ -40,6 +40,7 @@
       </div>
       @include('layouts.sidebar')
      @show
+     <x:notify-messages />
      @yield('isi')
       <footer class="footer">
         <div class=" container-fluid ">

@@ -20,28 +20,26 @@ use App\Http\Controllers\UserProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
-Route::get('Laporanuser', function () {
-    return view('homepage.lapor');
-});
-Route::get('homepage',function(){
-    return view('home');
-});
-Route::view('test','Homepage.userprofil')->middleware('auth');
-Route::resource('laporanuser',Laporanuser::class);
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('percobaan',function(){
-    return view('test');
-});
 Route::get('cars', Kendaraan::class);
-    Route::get('datadriver', Driver::class);
-Route::get('laporan', Datalaporan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    
-
+    Route::get('homepage',function(){
+        return view('home');
+    }); 
+    Route::get('test',function(){
+    return view('test');
     });
+    Route::resource('laporanuser',Laporanuser::class);   
+    
+        Route::get('datadriver', Driver::class);
+        Route::get('laporan', Datalaporan::class);
+        Route::get('Laporanuser', function () {
+        return view('homepage.lapor');
+    });
+});
 // Route::get('/profile/photo', UserProfileController::class,'photo');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      return view('dashboard');
