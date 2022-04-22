@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource('laporanuser',Laporanuser::class);   
     
         Route::get('datadriver', Driver::class);
-        Route::get('laporan', Datalaporan::class);
+        Route::resource('laporan', Datalaporan::class);
         Route::get('Laporanuser', function () {
         return view('homepage.lapor');
     });
