@@ -25,29 +25,13 @@ use App\Http\Controllers\UserProfileController;
 Route::get('/', function () {
     return view('auth.login');
 });
-<<<<<<< Updated upstream
-Route::resource('cars', Kendaraan::class);
-=======
-Route::resource('peminjaman',konfirmasicontroller::class);
-Route::get('cars', Kendaraan::class);
->>>>>>> Stashed changes
-//route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('homepage',function(){
-        return view('home');
     }); 
-    // Route::get('test',function(){
-    // return view('test');
-    // });
-    Route::resource('laporanuser',Laporanuser::class);   
-<<<<<<< Updated upstream
-    
-        Route::resource('datadriver', Driver::class);
-        Route::resource('laporan', Datalaporan::class);
-=======
+    Route::resource('laporanuser',Laporanuser::class);
+    Route::get('cars', Kendaraan::class);   
         Route::get('datadriver', Driver::class);
         Route::get('laporan', Datalaporan::class);
->>>>>>> Stashed changes
         Route::get('Laporanuser', function () {
         return view('homepage.lapor');
     });
