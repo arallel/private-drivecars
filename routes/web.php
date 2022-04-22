@@ -23,7 +23,7 @@ Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('cars', Kendaraan::class);
+Route::resource('cars', Kendaraan::class);
 //route ketika sudah fix
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('homepage',function(){
