@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\showcontroller;
-use App\Http\Livewire\detail\Kendaraan;
-use App\Http\Livewire\Datadriver\Driver;
-use App\Http\Livewire\laporan\Datalaporan;
+use App\Http\Livewire\Dashboard\Main;
+use App\Http\Livewire\User\Pengguna;
+use App\Http\Livewire\Kendaraan\Datakendaraan;
+use App\Http\Livewire\DataLaporan\Datalaporanpengguna;
 use App\Http\Controllers\lapor;
 use App\Http\Controllers\Laporanuser;
 use App\Http\Controllers\konfirmasicontroller;
@@ -25,21 +26,25 @@ use App\Http\Controllers\UserProfileController;
 Route::get('/', function () {
     return view('auth.login');
 });
+//tester route
+Route::get('test', function () {
+    return view('test');
+});
+
+//
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('homepage',function(){
     }); 
     Route::resource('laporanuser',Laporanuser::class);
-    Route::get('cars', Kendaraan::class);   
-        Route::get('datadriver', Driver::class);
-        Route::get('laporan', Datalaporan::class);
         Route::get('Laporanuser', function () {
         return view('homepage.lapor');
     });
+    Route::get('dashboard',Main::class)->name('Dashboard');
     Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
+    Route::get('Datalaporan',Datalaporanpengguna::class)->name('laporan');
+    Route::get('Datakendaraan',Datakendaraan::class)->name('kendaraan');
+    Route::get('Userdata',Pengguna::class)->name('pengguna');
 });
-// Route::get('/profile/photo', UserProfileController::class,'photo');
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-     return view('dashboard');
-})->name('dashboard');
+
 
 require_once __DIR__ . '/jetstream.php';

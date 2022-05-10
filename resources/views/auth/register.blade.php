@@ -1,155 +1,274 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Register</title>
-<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
-<script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-<link rel="stylesheet" href="{{asset('reg/app.css')}}">
-</head>
-<body class='snippet-body'>
-<!-- MultiStep Form -->
-<div class="container-fluid" id="grad1">
-    <div class="row justify-content-center mt-0">
-        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
-            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                <h2><strong>Sign Up Your User Account</strong></h2>
-                <p>Fill all form field to go to next step</p>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<title>test</title>
 
-                <div class="row">
-                    <div class="col-md-12 mx-0">
-                        <form id="msform" action="{{ route('register') }}" method="POST">
-                            @csrf
-                            <!-- progressbar -->
-                            <ul id="progressbar">
-                                <li id="account"><strong> Account</strong></li>
-                                <li id="personal"><strong>Personal</strong></li>
-                                <li id="alamat"><strong>alamat</strong></li>
-                                <li id="confirm"><strong>Finish</strong></li>
-                            </ul> <!-- fieldsets -->
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title">Account Information</h2> 
-									<input type="email" @error('email') is-invalid @enderror name="email" value="{{ old('email') }}" placeholder="Email" /> 
-							@error('email')
-							<div class="alert alert-danger mt-2">
-								{{ $message }}
-							</div>    
-						@enderror
-									<input type="text"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" placeholder="Nama" /> 
-									@error('name')
-								<div class="alert alert-danger mt-2">
-									{{ $message }}
-								</div>  
-								@enderror 	
-									<input type="password" @error('password') is-invalid @enderror name="password" placeholder="Password" /> 
-									@error('password')
-								<div class="alert alert-danger mt-2">
-									{{ $message }}
-								</div>    
-							@enderror
-									<input type="password" @error('password_confirmation') is-invalid @enderror name="password_confirmation" placeholder="Confirm Password" />
-									@error('password_confirmation')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-								</div> 
-								 
-							
-							
-							
-								<input type="button" name="next" class="next action-button" value="Next Step" />
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title">Personal Information</h2> 
-									<input type="text" @error('ktp') is-invalid @enderror name="ktp" value="{{ old('ktp') }}" placeholder="No Ktp" /> 
-                                    @error('ktp')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-									<div class="row">
-                                        <div class="col-9"> <select class="list-dt" id="month" value="{{ old('gender') }}" name="gender">
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.creative-tim.com/product/paper-bootstrap-wizard"/>
+
+
+	<!-- CSS Files -->
+    <link href="auth/Register/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="auth/Register/css/paper-bootstrap-wizard.css" rel="stylesheet" />
+
+
+	<!-- Fonts and Icons -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+	<link href="auth/Register/css/themify-icons.css" rel="stylesheet">
+	</head>
+
+	<body>
+	<div class="image-container set-full-height" style="background-image: url('auth/Register/img/test.jpg')">
+	    <!--   Big container   -->
+	    <div class="container">
+	        <div class="row">
+		        <div class="col-sm-8 col-sm-offset-2">
+
+		            <!--      Wizard container        -->
+		            <div class="wizard-container">
+
+		                <div class="card wizard-card" data-color="blue" id="wizardProfile">
+		                    <form action="{{ route('register') }}" method="POST">
+		                    @csrf
+		                <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
+
+		                    	<div class="wizard-header text-center">
+		                        	<h3 class="wizard-title">Create your profile</h3>
+									<p class="category">This information will let us know more about you.</p>
+		                    	</div>
+
+								<div class="wizard-navigation">
+									<div class="progress-with-circle">
+									     <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;"></div>
+									</div>
+									<ul>
+			                            <li>
+											<a href="#about" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-user"></i>
+												</div>
+												About
+											</a>
+										</li>
+			                            <li>
+											<a href="#address" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-map"></i>
+												</div>
+												Address
+											</a>
+										</li>
+			                            <li>
+											<a href="#account" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-settings"></i>
+												</div>
+												Work
+											</a>
+										</li>
+			                        </ul>
+								</div>
+		                        <div class="tab-content">
+		                            <div class="tab-pane" id="about">
+		                            	<div class="row">
+											<h5 class="info-text"> Please tell us more about yourself.</h5>
+											<div class="col-sm-4 col-sm-offset-1">
+												<div class="picture-container">
+													<div class="picture">
+														<img src="auth/Register/img/default-avatar.jpg" class="picture-src" id="wizardPicturePreview" title="" />
+														<input type="file" id="wizard-picture">
+													</div>
+													<h6>Choose Picture</h6>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label>Name <small>(required)</small></label>
+													<input type="text"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" class="form-control" placeholder="Name" /> 
+
+												</div>
+												@error('name')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror 
+												<div class="form-group">
+													<label>Email <small>(required)</small></label>
+													<input type="email" @error('email') is-invalid @enderror name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" /> 
+												</div>
+												@error('email')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror 
+											<!-- </div> -->
+											<!-- <div class="col-sm-10 col-sm-offset-1"> -->
+												<div class="form-group">
+													<label>Password <small>(required)</small></label>
+													<input type="password" @error('password') is-invalid @enderror name="password" class="form-control" placeholder="Password" /> 
+                                                  @error('password')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+												</div>
+												<div class="form-group">
+													<label>Confirm Password <small>(required)</small></label>
+													<input type="password" @error('password_confirmation') is-invalid @enderror name="password_confirmation" class="form-control" placeholder="Confirm Password" />
+													@error('password_confirmation')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+								            </div>
+										     </div>
+									    </div>
+		                            </div>
+		                            <div class="tab-pane" id="address">
+		                                <div class="row">
+		                                    <div class="col-sm-12">
+		                                        <h5 class="info-text"> Proifle</h5>
+		                                    </div>
+		                                    <div class="col-sm-7 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                            <label>alamat</label>
+		                                           <input type="text" value="{{ old('alamat') }}" @error('alamat') is-invalid @enderror name="alamat"  class="form-control" placeholder="alamat" /> 
+		                                           @error('alamat')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-3">
+		                                        <div class="form-group">
+		                                            <label>Tanggal lahir</label>
+		                                            <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"  class="form-control" placeholder="tanggal lahir" />
+		                                            @error('tanggal_lahir')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Provinsi</label>
+		                                            <input type="text" @error('provinsi') is-invalid @enderror name="provinsi" value="{{ old('email') }}" class="form-control" placeholder="provinsi" />
+		                                            @error('provinsi')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>Kabupaten</label>
+		                                            <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten" value="{{ old('kabupaten') }}" class="form-control" placeholder="kabupaten" /> 
+		                                            @error('kabupaten')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-6 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Kecamatan</label>
+		                                            <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan" value="{{ old('kecamatan') }}" class="form-control" placeholder="kecamatan" /> 
+		                                            @error('kecamatan')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                            </div>
+		                        </div>
+		                            <div class="tab-pane" id="account">
+		                                <h5 class="info-text">Profile </h5>                                 
+		                                <div class="row"> 
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Ktp</label>
+		                                            <input type="text" @error('ktp') is-invalid @enderror name="ktp" value="{{ old('ktp') }}" class="form-control" placeholder="No Ktp" />
+		                                            @error('ktp')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>Contact</label>
+		                                            <input type="text" 
+		                                            @error('contact') is-invalid @enderror name="contact" value="{{ old('contact') }}" class="form-control" placeholder="No hp" />
+		                                            @error('')
+									            <div class="alert alert-danger mt-1">
+										        {{ $message }}
+									             </div>    
+								                @enderror
+		                                        </div>
+		                                    </div>
+		                                     <div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Gender</label>
+		                                        <select class="form-control" value="{{ old('gender') }}" name="gender">
                                                 <option>Laki-Laki</option>
                                                 <option>Perempuan</option>
-                                            </select> 
-										</div>
-                                    </div> <br>
-									<input type="text" @error('contact') is-invalid @enderror name="contact" value="{{ old('contact') }}" placeholder="No hp" /> 
-                                    @error('contact')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title">alamat Information</h2>
-                                    <input type="text" @error('tempat_lahir') is-invalid @enderror value="{{ old('tempat_lahir') }}" name="tempat_lahir"  placeholder="tempat lahir" /> 
-                                    @error('tempat_lahir')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                 <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"  placeholder="tanggal lahir" /> 
-                                    @error('tanggal_lahir')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                 <input type="text" @error('provinsi') is-invalid @enderror name="provinsi" value="{{ old('email') }}" placeholder="provinsi" /> 
-                                    @error('provinsi')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                 <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten" value="{{ old('kabupaten') }}" placeholder="kabupaten" /> 
-                                    @error('kabupaten')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                 <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan" value="{{ old('kecamatan') }}" placeholder="kecamatan" /> 
-                                    @error('kecamatan')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                 <input type="text" value="{{ old('alamat') }}" @error('alamat') is-invalid @enderror name="alamat"  placeholder="alamat" /> 
-                                    @error('alamat')
-									<div class="alert alert-danger mt-2">
-										{{ $message }}
-									</div>    
-								@enderror 
-                                </div>
-								<input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <button class="next action-button">submit</button>
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                                    </div> <br><br>
-                                    <div class="row justify-content-center">
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
-<script type='text/javascript' src=''></script>
-<script type='text/javascript' src=''></script>
-<script src="reg/app.js"></script>
+                                                </select>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        <div class="wizard-footer">
+		                            <div class="pull-right">
+		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
+		                               <button type="submit" class='btn btn-finish btn-fill btn-warning btn-wd'>Submit</button>
+		                            </div>
+
+		                            <div class="pull-left">
+		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+		                            </div>
+		                            <div class="clearfix"></div>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+	    	</div><!-- end row -->
+		</div> <!--  big container -->
+
+	    <div class="footer">
+	        <div class="container text-center">
+	          
+	        </div>
+	    </div>
+		
+	</div>
+
 </body>
+
+	<!--   Core JS Files   -->
+	<script src="auth/Register/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="auth/Register/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="auth/Register/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="auth/Register/js/demo.js" type="text/javascript"></script>
+	<script src="auth/Register/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+	<!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
+	<script src="auth/Register/js/jquery.validate.min.js" type="text/javascript"></script>
+
 </html>

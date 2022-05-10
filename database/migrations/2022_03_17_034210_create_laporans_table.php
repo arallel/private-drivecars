@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('spedometersblm');
             $table->string('spedometersudah');
             $table->string('keterangan');
-            $table->string('tglberangkat');
-            $table->string('tglkembali');
+            $table->string('tanggalpenggunaan');
             $table->string('totalkm');
             $table->string('liter');
             $table->timestamps();

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('contact')->unique();
-            $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('provinsi');
             $table->string('kabupaten');
