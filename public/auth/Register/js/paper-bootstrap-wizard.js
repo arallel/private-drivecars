@@ -42,57 +42,57 @@ transparent = true;
             $('[rel="tooltip"]').tooltip();
 
             // Code for the Validator
-         //    var $validator = $('.wizard-card form').validate({
-        	// 	  rules: {
-        	// 	    name: {
-        	// 	      required: true,
-        	// 	      minlength: 3
-        	// 	    },
-        	// 	    password: {
-        	// 	      required: true,
-        	// 	      minlength: 6
-        	// 	    },
-         //             password_confirmation: {
-         //              required: true,
-         //              minlength: 6
-         //            },
-        	// 	    email: {
-        	// 	      required: true,
-         //              email:true
-        	// 	    },
-         //            ktp: {
-         //              required: true,
-         //              minlength: 7
-         //            },
-         //            contact: {
-         //              required: true,
-         //              minlength: 3
-         //            },
-         //            gender: {
-         //              required: true,
-         //            },
-         //            tempat_lahir: {
-         //              required: true,
-         //            },
-         //            tanggal_lahir: {
-         //              required: true,
-         //              date: true
-         //            },
-         //             provinsi: {
-         //              required: true,
-         //            },
-         //             kabupaten: {
-         //              required: true
-         //            },
-         //             kecamatan: {
-         //              required: true
-         //            },
-         //             alamat: {
-         //              required: true,
-         //              minlength: 3
-         //            }
-         //        },
-        	// });
+            var $validator = $('.wizard-card form').validate({
+        		  rules: {
+        		    name: {
+        		      required: true,
+        		      minlength: 3
+        		    },
+        		    password: {
+        		      required: true,
+        		      minlength: 6
+        		    },
+                     password_confirmation: {
+                      required: true,
+                      minlength: 6
+                    },
+        		    email: {
+        		      required: true,
+                      email:true
+        		    },
+                    ktp: {
+                      required: true,
+                      minlength: 16
+                    },
+                    contact: {
+                      required: true,
+                      minlength: 3
+                    },
+                    gender: {
+                      required: true,
+                    },
+                    tempat_lahir: {
+                      required: true,
+                    },
+                    tanggal_lahir: {
+                      required: true,
+                      date: true
+                    },
+                     provinsi: {
+                      required: true,
+                    },
+                     kabupaten: {
+                      required: true
+                    },
+                     kecamatan: {
+                      required: true
+                    },
+                     alamat: {
+                      required: true,
+                      minlength: 3
+                    }
+                },
+        	});
 
             // Wizard Initialization
           	$('.wizard-card').bootstrapWizard({

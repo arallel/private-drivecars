@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	
-	<title>test</title>
+	<title>Register</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -95,18 +95,18 @@
 
 												</div>
 												@error('name')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror 
 												<div class="form-group">
 													<label>Email <small>(required)</small></label>
 													<input type="email" @error('email') is-invalid @enderror name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" /> 
 												</div>
 												@error('email')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror 
 											<!-- </div> -->
 											<!-- <div class="col-sm-10 col-sm-offset-1"> -->
@@ -114,18 +114,18 @@
 													<label>Password <small>(required)</small></label>
 													<input type="password" @error('password') is-invalid @enderror name="password" class="form-control" placeholder="Password" /> 
                                                   @error('password')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 												</div>
 												<div class="form-group">
 													<label>Confirm Password <small>(required)</small></label>
 													<input type="password" @error('password_confirmation') is-invalid @enderror name="password_confirmation" class="form-control" placeholder="Confirm Password" />
 													@error('password_confirmation')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 								            </div>
 										     </div>
@@ -141,9 +141,9 @@
 		                                            <label>alamat</label>
 		                                           <input type="text" value="{{ old('alamat') }}" @error('alamat') is-invalid @enderror name="alamat"  class="form-control" placeholder="alamat" /> 
 		                                           @error('alamat')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -152,20 +152,20 @@
 		                                            <label>Tanggal lahir</label>
 		                                            <input type="date" @error('tanggal_lahir') is-invalid @enderror name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"  class="form-control" placeholder="tanggal lahir" />
 		                                            @error('tanggal_lahir')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
 		                                            <label>Provinsi</label>
-		                                            <input type="text" @error('provinsi') is-invalid @enderror name="provinsi" value="{{ old('email') }}" class="form-control" placeholder="provinsi" />
+		                                            <input type="text" @error('provinsi') is-invalid @enderror name="provinsi" value="{{ old('provinsi') }}" class="form-control" placeholder="provinsi" />
 		                                            @error('provinsi')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -174,9 +174,9 @@
 		                                            <label>Kabupaten</label>
 		                                            <input type="text" @error('kabupaten') is-invalid @enderror name="kabupaten" value="{{ old('kabupaten') }}" class="form-control" placeholder="kabupaten" /> 
 		                                            @error('kabupaten')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -185,9 +185,9 @@
 		                                            <label>Kecamatan</label>
 		                                            <input type="text" @error('kecamatan') is-invalid @enderror name="kecamatan" value="{{ old('kecamatan') }}" class="form-control" placeholder="kecamatan" /> 
 		                                            @error('kecamatan')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -201,9 +201,9 @@
 		                                            <label>Ktp</label>
 		                                            <input type="text" @error('ktp') is-invalid @enderror name="ktp" value="{{ old('ktp') }}" class="form-control" placeholder="No Ktp" />
 		                                            @error('ktp')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -213,9 +213,9 @@
 		                                            <input type="text" 
 		                                            @error('contact') is-invalid @enderror name="contact" value="{{ old('contact') }}" class="form-control" placeholder="No hp" />
 		                                            @error('')
-									            <div class="alert alert-danger mt-1">
-										        {{ $message }}
-									             </div>    
+									            <div class="alert alert-danger text-white" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </div>   
 								                @enderror
 		                                        </div>
 		                                    </div>
@@ -233,12 +233,12 @@
 		                        </div>
 		                        <div class="wizard-footer">
 		                            <div class="pull-right">
-		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
-		                               <button type="submit" class='btn btn-finish btn-fill btn-warning btn-wd'>Submit</button>
+		                                <input type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Next' />
+		                               <button type="submit" class='btn btn-finish btn-fill btn-success btn-wd'>Submit</button>
 		                            </div>
 
 		                            <div class="pull-left">
-		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+		                                <input type='button' class='btn btn-previous btn-warning btn-wd' name='previous' value='Previous' />
 		                            </div>
 		                            <div class="clearfix"></div>
 		                        </div>

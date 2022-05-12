@@ -15,7 +15,7 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <!-- tailwind css -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -23,7 +23,7 @@
   <!-- unicons css -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- CSS only -->
-  <link rel="stylesheet" type="text/css" href="../assets/css/test.css">
+
 
   @livewireStyles
 

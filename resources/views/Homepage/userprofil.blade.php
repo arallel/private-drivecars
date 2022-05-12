@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>User Profile</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="profileuser/main.css">
     <link rel="stylesheet" type="text/css" href="passwordcustom/css/passtrength.css"/>
@@ -23,8 +23,8 @@
     @csrf
     @method('PUT')  
     <div class="py-2">
-        <div class="row py-2">
-            <div class="col-md-6"> <label for="name">Name</label> <input type="text" @error('name') is-invalid @enderror name="name"  value="{{old('name') ?? auth()->user()->name}}" class="bg-light form-control" placeholder=""> </div>
+        <div class="row py-1">
+            <div class="col-md-6"> <label >test</label> <input type="text" @error('name') is-invalid @enderror name="name"  value="{{old('name') ?? auth()->user()->name}}" class="bg-light form-control" placeholder=""> </div>
              <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" name="email" @error('email') is-invalid @enderror value="{{old('email') ?? auth()->user()->email}}" class="bg-light form-control" placeholder="">
                @error('name')
                     <div class="alert alert-danger mt-2">
@@ -57,24 +57,24 @@
         <div class="row py-2">
             <div class="col-md-6"> <label for="gender">gender</label> <select name="gender" id="country" class="bg-light">
                     <option value="{{old('gender') ?? auth()->user()->gender}}" selected>{{old('gender') ?? auth()->user()->gender}}</option>
-                    @if(auth()->user()->gender == 'perempuan')                                    
+                    @if(auth()->user()->gender == 'Perempuan')                                    
                      {
-                        <option value="laki-laki">laki laki</option>
+                        <option value="Laki-Laki">Laki Laki</option>
                      }
                      @endif
-                     @if(auth()->user()->gender == 'laki-laki')
+                     @if(auth()->user()->gender == 'Laki-Laki')
                      {
-                         <option value="perempuan">perempuan</option>
+                         <option value="Perempuan">Perempuan</option>
                      }
                      @endif
                 </select> </div>
-              <div class="col-md-6"> <label for="tempat_lahir">tempat lahir</label> <input type="text" name="tempat_lahir" @error('tempat_lahir') is-invalid @enderror value="{{old('tempat_lahir') ?? auth()->user()->tempat_lahir}}" class="bg-light form-control">
-                 @error('tempat_lahir')
+              <div class="col-md-6"> <label for="alamat">alamat</label> <input type="text" @error('alamat') is-invalid @enderror name="alamat"  value="{{old('alamat') ?? auth()->user()->alamat}}" class="bg-light form-control">
+               @error('alamat')
                     <div class="alert alert-danger mt-2">
                         {{ $message }}
                     </div>    
-                @enderror
-              </div> 
+                @enderror  
+            </div>
             </div>
         </div>
          <div class="row py-2">
@@ -109,16 +109,8 @@
                 @enderror
             </div>
         </div>
-         <div class="row justify-content-center">
-            <div class="col-md-6"> <label for="alamat">alamat</label> <input type="text" @error('alamat') is-invalid @enderror name="alamat"  value="{{old('alamat') ?? auth()->user()->alamat}}" class="bg-light form-control">
-               @error('alamat')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>    
-                @enderror  
-            </div>
-        </div><br>
-        <div class="row justify-content-center"> <button type="submit" class="btn btn-primary mr-3">Save Changes</button> <button class="btn border button">Cancel</button>
+         <br>
+        <div class="row justify-content-center"> <button type="submit" class="btn btn-primary mr-3">Save Changes</button>
         </div>
         <br>
         <div class="d-sm-flex align-items-center pt-3 border-top" id="deactivate">

@@ -12,6 +12,8 @@ use App\Http\Controllers\Laporanuser;
 use App\Http\Controllers\konfirmasicontroller;
 use App\Http\Controllers\UserProfileController;
 
+use App\Http\Livewire\User\Userprofile;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,23 +29,27 @@ Route::get('/', function () {
     return view('auth.login');
 });
 //tester route
-Route::get('test', function () {
-    return view('test');
-});
+// Route::get('test', function () {
+//     return view('test');
+// });
+
+
 
 //
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('homepage',function(){
-    }); 
+    // Route::get('homepage',function(){
+    // }); 
+    Route::view('Dashboard','home');
     Route::resource('laporanuser',Laporanuser::class);
         Route::get('Laporanuser', function () {
         return view('homepage.lapor');
     });
     Route::get('dashboard',Main::class)->name('Dashboard');
-    Route::get('Dashboard','App\Http\Controllers\homecontroller@index');
+    Route::get('Role','App\Http\Controllers\homecontroller@index');
     Route::get('Datalaporan',Datalaporanpengguna::class)->name('laporan');
     Route::get('Datakendaraan',Datakendaraan::class)->name('kendaraan');
     Route::get('Userdata',Pengguna::class)->name('pengguna');
+    Route::get('Userprofile',Userprofile::class)->name('userprofile');
 });
 
 
