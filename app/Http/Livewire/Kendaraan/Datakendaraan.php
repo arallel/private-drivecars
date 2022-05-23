@@ -8,23 +8,23 @@ use App\Models\Cars;
 use SimpleSoftwareIO\QrCode\Generator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Livewire\WithPagination;
 
 class Datakendaraan extends Component
 {
-    public $cars ,$platmobil,$nostnk,$warna,$nobpkb,$merkkendaraan,$bahanbakar,$filecar,$selected_id;
     public $ModalOpen = 0;
     public $bukacreate = 0;
     public $bukaedit = 0;
-    public $count = 0;
-    public $updateMode = false;
+     protected $paginationTheme = 'bootstrap';
     use WithFileUploads;
     use LivewireAlert;
+    use WithPagination;
+    
     public function render()
     {
-         $this->cars = Cars::all();
-        return view('livewire.kendaraan.datakendaraan');
-        // return view('livewire.detail.kendaraan');
+        return view('livewire.kendaraan.datakendaraan', [
+            'cars' => Cars::paginate(3),
+        ]);
     }
         //modal 
     public function openModalPopover()

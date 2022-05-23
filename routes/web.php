@@ -6,13 +6,15 @@ use App\Http\Controllers\showcontroller;
 use App\Http\Livewire\Dashboard\Main;
 use App\Http\Livewire\User\Pengguna;
 use App\Http\Livewire\Kendaraan\Datakendaraan;
-use App\Http\Livewire\DataLaporan\Datalaporanpengguna;
+use App\Http\Controllers\Datalaporanpengguna;
 use App\Http\Controllers\lapor;
 use App\Http\Controllers\Laporanuser;
 use App\Http\Controllers\konfirmasicontroller;
 use App\Http\Controllers\UserProfileController;
-
+use App\Http\Livewire\LaporanTable;
 use App\Http\Livewire\User\Userprofile;
+use App\Http\Controllers\test;
+
 
 
 /*
@@ -29,9 +31,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 //tester route
-// Route::get('test', function () {
-//     return view('test');
-// });
+Route::get('test', function () {
+    return view('test');
+});
 
 
 
@@ -44,9 +46,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('Laporanuser', function () {
         return view('homepage.lapor');
     });
+        Route::get('datalaporan',[Datalaporanpengguna::class,'index'])->name('Datalaporan');
     Route::get('dashboard',Main::class)->name('Dashboard');
     Route::get('Role','App\Http\Controllers\homecontroller@index');
-    Route::get('Datalaporan',Datalaporanpengguna::class)->name('laporan');
     Route::get('Datakendaraan',Datakendaraan::class)->name('kendaraan');
     Route::get('Userdata',Pengguna::class)->name('pengguna');
     Route::get('Userprofile',Userprofile::class)->name('userprofile');

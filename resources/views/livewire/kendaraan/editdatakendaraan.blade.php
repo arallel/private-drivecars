@@ -44,7 +44,7 @@
                   <div class="input-icons">
                   <div class="input-group input-group-outline my-3">
                      <i class="fa-solid fa-palette icon"></i>
-                    <input type="text" class="form-control" wire:model="warna">
+                    <input type="color" class="form-control" wire:model="warna">
                   </div>
                   </div>
                   <div class="input-icons">
@@ -74,7 +74,7 @@
                 </form>
                <button wire:click="tutupedit()" class="btn btn-primary">Cancel</button>
               <button wire:click="update()" type="button"
-              class="btn btn-info">
+              class="btn btn-info active">
               input
           </button>
               </div>

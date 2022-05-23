@@ -74,24 +74,24 @@
 												Tolong masukan Keterangan
 											</div>    
 										  @enderror
-                                            <div class="col-md-12">
+                       <div class="col-md-12">
 												<div class="form-group">
-													<span><strong>tanggal keberangkatan</strong></span>
-													<input type="date" class="form-control" @error('tglberangkat') is-invalid @enderror name="tglberangkat" id="name" placeholder="tglberangkat">
+													<span><strong>user id</strong></span>
+													<input type="text" class="form-control" @error('user_id') is-invalid @enderror name="user_id" id="name" value="{{ auth()->user()->id}}">
 												</div>
 											</div>
-											@error('tglberangkat')
+											@error('user_id')
 											<div class="alert alert-danger mt-2">
 												Tolong masukan Tanggal Berangkat Kendaraan
 											</div>    
 										  @enderror
 											<div class="col-md-12"> 
 												<div class="form-group">
-													<span><strong>tanggal kembali</strong></span>
-													<input type="date" class="form-control" @error('tglkembali') is-invalid @enderror name="tglkembali" id="name" placeholder="date">
+													<span><strong>tanggal penggunaan</strong></span>
+													<input type="date" class="form-control" @error('tanggalpenggunaan') is-invalid @enderror name="tanggalpenggunaan" id="name" placeholder="date">
 												</div>
 											</div>
-											@error('tglkembali')
+											@error('tanggalpenggunaan')
 											<div class="alert alert-danger mt-2">
 												Tolong masukan Tanggal Kembali Kendaraan
 											</div>    

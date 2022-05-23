@@ -23,8 +23,7 @@ class Laporanuser extends Controller
             'spedometersblm' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'spedometersudah' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'keterangan' => 'required',
-            'tglberangkat' => 'required',
-            'tglkembali' => 'required',
+            'tanggalpenggunaan' => 'required',
             'totalkm' => 'required',
             'liter' => 'required',
         ]);
@@ -39,9 +38,9 @@ class Laporanuser extends Controller
           'spedometersblm' => $spedometersblm,
           'spedometersudah' => $spedometersudah,
           'keterangan' => $request->keterangan,
-          'tglberangkat' => $request->tglberangkat,
-          'tglkembali' => $request->tglkembali,
+          'tanggalpenggunaan' => $request->tanggalpenggunaan,
           'totalkm' => $request->totalkm,
+          'user_id' => $request->user_id,
           'liter' => $request->liter,
         ]);
         

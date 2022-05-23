@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Laporan extends Model
 {
@@ -16,9 +18,11 @@ class Laporan extends Model
         'spedometersblm',
         'spedometersudah',
         'keterangan',
-        'tglberangkat',
-        'tglkembali',
+        'tanggalpenggunaan',
         'totalkm',
         'liter'
     ];
+   
+    
+    
 }

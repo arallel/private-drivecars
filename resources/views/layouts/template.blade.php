@@ -8,7 +8,10 @@
      {{ str_replace('-', ' ', Route::currentRouteName()) }}
   </title>
   <!--     Fonts and icons     -->
- <!--  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <!-- tailwind css -->
@@ -17,6 +20,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
+  <!-- unicons css -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- CSS only -->
 
 
@@ -30,8 +35,7 @@
     <!-- Navbar -->
    @include('layouts.component.navbar')
 
-  {{$slot}}
-
+  @yield('isi')
   </main>
 
   

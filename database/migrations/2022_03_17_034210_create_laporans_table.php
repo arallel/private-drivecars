@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('spedometersblm');
             $table->string('spedometersudah');
             $table->string('keterangan');
@@ -22,6 +23,8 @@ return new class extends Migration
             $table->string('totalkm');
             $table->string('liter');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -40,8 +40,7 @@
                       class="btn btn-info"><i class="fa-solid fa-eye text-right"></i></button></td>
                 </tr>
               @endforeach
-                   
-                  </tbody>
+                     </tbody>
                 </table>
               </div>
             </div>

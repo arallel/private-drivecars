@@ -120,7 +120,7 @@
               @enderror
                 </form>
                  <button wire:click="tutupcreate()" class="btn btn-primary">Cancel</button>
-                 <button wire:click="store()" type="button" class="btn btn-info">input</button>
+                 <button wire:click="store()" class="btn btn-info">input</button>
               </div>
             </div>
           </div>
