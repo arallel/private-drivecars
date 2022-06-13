@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('laporans', function (Blueprint $table) {
+        Schema::create('konfirmasis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('spedometersudah');
-            $table->string('keterangan');
-            $table->string('totalkm');
-            $table->string('liter');
+            $table->string('spedometersblm');
+            $table->string('tanggalpenggunaan');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-        });
+        }); 
     }
 
     /**
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporans');
+        //
     }
 };

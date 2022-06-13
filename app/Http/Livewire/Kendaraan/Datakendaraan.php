@@ -12,9 +12,11 @@ use Livewire\WithPagination;
 
 class Datakendaraan extends Component
 {
-    public $ModalOpen = 0;
-    public $bukacreate = 0;
-    public $bukaedit = 0;
+    // public $ModalOpen = 0;
+    // public $bukacreate = 0;
+    // public $bukaedit = 0;
+    public $merkkendaraan,$warna,$nobpkb,$nostnk,$platmobil,$bahanbakar,$filecar,$selected_id;
+    public $view_id,$view_merkkendaraan,$view_warna,$view_nobpkb,$view_nostnk,$view_platmobil,$view_bahanbakar,$view_filecar;
      protected $paginationTheme = 'bootstrap';
     use WithFileUploads;
     use LivewireAlert;
@@ -61,16 +63,15 @@ class Datakendaraan extends Component
     {
 
         $cars = Cars::findOrFail($id);
-         $this->id = $cars->id;
-        $this->platmobil = $cars->platmobil;
-        $this->nostnk = $cars->nostnk;
-        $this->warna = $cars->warna;
-        $this->nobpkb = $cars->nobpkb;
-        $this->merkkendaraan = $cars->merkkendaraan;
-        $this->bahanbakar = $cars->bahanbakar;
-        $this->filecar = $cars->filecar;
-// @dd($cars);
-        $this->openModalPopover();
+         $this->view_id = $cars->id;
+        $this->view_platmobil = $cars->platmobil;
+        $this->view_nostnk = $cars->nostnk;
+        $this->view_warna = $cars->warna;
+        $this->view_nobpkb = $cars->nobpkb;
+        $this->view_merkkendaraan = $cars->merkkendaraan;
+        $this->view_bahanbakar = $cars->bahanbakar;
+        $this->view_filecar = $cars->filecar;
+        $this->dispatchBrowserEvent('view-car');
     }
     private function resetCreateForm(){
         $this->id = '';
@@ -94,7 +95,7 @@ class Datakendaraan extends Component
             'bahanbakar' => 'required|min:1',
             'filecar' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
-        Cars::updateOrCreate(['id' => $this->id], [
+        Cars::Create(['id' => $this->id], [
             'platmobil' => $this->platmobil,
             'nostnk' =>$this->nostnk,
             'warna' =>$this->warna,
@@ -142,7 +143,7 @@ class Datakendaraan extends Component
             'timerProgressBar' => true,
            ]);
              $this->resetCreateForm();
-             $this->tutupedit();
+        $this->dispatchBrowserEvent('close-modal');
         }
     }   
 
@@ -156,10 +157,18 @@ class Datakendaraan extends Component
          $this->nobpkb = $cars->nobpkb;
          $this->merkkendaraan = $cars->merkkendaraan;
          $this->bahanbakar = $cars->bahanbakar;
-         // $this->filecar = $cars->filecar;
 
-         $this->bukaedit();
+        $this->dispatchBrowserEvent('edit-car');
+
     }
+    //Delete Confirmation
+    public function deleteConfirmation($id)
+    {
+        $this->id = $id; //student id
+
+        $this->dispatchBrowserEvent('delete-car');
+    }
+
     public function delete($id)
     {
         Cars::find($id)->delete();

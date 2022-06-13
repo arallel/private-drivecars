@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cars;
+use App\Models\Konfirmasi;
 
 class Konfirmasicontroller extends Controller
 {
@@ -23,7 +25,8 @@ class Konfirmasicontroller extends Controller
      */
     public function create()
     {
-        //
+         $cars = Cars::all(); 
+        return view ('Homepage.peminjaman',['cars' => $cars]);
     }
 
     /**
@@ -34,7 +37,27 @@ class Konfirmasicontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $this->validate($request,[
+            'spedometersblm' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'tanggalpenggunaan' => 'required',
+            'kendaraan' => 'required',
+            'pengguna' => 'required',
+            
+        ]);
+        
+        $file_name = $request->spedometersblm->hashName();
+        $spedometersblm =  $request->spedometersblm->storeAs('spedometersblm' , $file_name);
+
+        
+        Konfirmasi::create([
+          'spedometersblm' => $spedometersblm,
+          'tanggalpenggunaan' => $request->tanggalpenggunaan,
+          'kendaraan' => $request->kendaraan,
+          'pengguna' => $request->pengguna,
+
+        ]);
+        
+        return redirect()->route('laporanuser.index'); 
     }
 
     /**

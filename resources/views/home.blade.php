@@ -57,6 +57,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('laporanuser.create') }}">Laporan</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('Peminjaman.create') }}">Peminjaman</a>
+                    </li>
                     
                     <li class="nav-item">
                         <a id="side-search-open" class="nav-link" href="#">

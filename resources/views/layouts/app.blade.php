@@ -12,7 +12,7 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <!-- tailwind css -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -34,7 +34,7 @@
 
   </main>
 
-  
+  @stack('scripts')
   @livewireScripts
     <!--   Core JS Files   -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

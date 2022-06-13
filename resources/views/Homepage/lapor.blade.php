@@ -42,16 +42,7 @@
 											@csrf
 										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group">
-													<span><strong>spedometer sebelum berangkat</strong></span>
-													<input type="file" class="form-control" name="spedometersblm" @error('spdeometersblm') is-invalid @enderror id="name" placeholder="spedometersblm">
-												</div>
-												@error('spdeometersblm')
-												<div class="alert alert-danger mt-2">
-													Tolong masukan spedometer 
-												</div>    
-											  @enderror
-											</div>
+												
                                              <div class="col-md-12">
 												<div class="form-group">
 													<span><strong>spedometer setelah berangkat</strong></span>
@@ -74,28 +65,8 @@
 												Tolong masukan Keterangan
 											</div>    
 										  @enderror
-                       <div class="col-md-12">
-												<div class="form-group">
-													<span><strong>user id</strong></span>
-													<input type="text" class="form-control" @error('user_id') is-invalid @enderror name="user_id" id="name" value="{{ auth()->user()->id}}">
-												</div>
-											</div>
-											@error('user_id')
-											<div class="alert alert-danger mt-2">
-												Tolong masukan Tanggal Berangkat Kendaraan
-											</div>    
-										  @enderror
-											<div class="col-md-12"> 
-												<div class="form-group">
-													<span><strong>tanggal penggunaan</strong></span>
-													<input type="date" class="form-control" @error('tanggalpenggunaan') is-invalid @enderror name="tanggalpenggunaan" id="name" placeholder="date">
-												</div>
-											</div>
-											@error('tanggalpenggunaan')
-											<div class="alert alert-danger mt-2">
-												Tolong masukan Tanggal Kembali Kendaraan
-											</div>    
-										  @enderror
+                       
+											
 											<div class="col-md-12">
 												<div class="form-group">
 													<span><strong>total jarak yang di tempuh</strong></span>

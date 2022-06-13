@@ -40,7 +40,7 @@
 								<div class="contact-wrap">
 									
 									{{-- <div id="form-message-warning" class="mb-4 w-100 text-center"></div>  --}}
-									<form action="{{ route('peminjaman.store') }}" method="POST" enctype="multipart/form-data"  class="contactForm">
+									<form action="{{ route('Peminjaman.store') }}" method="POST" enctype="multipart/form-data"  class="contactForm">
 											@csrf
 										<div class="row">
 											<div class="col-md-12">
@@ -52,7 +52,7 @@
 										  <div class="col-md-12">
 												<div class="form-group">  
                     <label for="cars">Choose a car:</label><br>
-                    <select name="kendaraan" id="cars">
+                    <select name="kendaraanz" id="cars">
 											@foreach ($cars as $car)
    								  <option value="{{$car->id}}">{{$car->merkkendaraan}}</option>
    								   @endforeach
@@ -62,7 +62,7 @@
 											</div>
 											<div class="col-md-12">
 												<div class="form-group ">
-														<input type="text" name="tanggalkeberangkatan" value="" />
+														<input type="text" name="tanggalpenggunaan" value="" />
 												</div>
 											</div>
                          <div>
@@ -89,21 +89,21 @@
   	
   </script>
  --> <script type="text/javascript">
- 	$('input[name="tanggalkeberangkatan"]').daterangepicker();
+ 	$('input[name="tanggalpenggunaan"]').daterangepicker();
 $(function() {
 
-  $('input[name="tanggalkeberangkatan"]').daterangepicker({
+  $('input[name="tanggalpenggunaan"]').daterangepicker({
       autoUpdateInput: false,
       locale: {
           cancelLabel: 'Clear'
       }
   });
 
-  $('input[name="tanggalkeberangkatan"]').on('apply.daterangepicker', function(ev, picker) {
+  $('input[name="tanggalpenggunaan"]').on('apply.daterangepicker', function(ev, picker) {
       $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
   });
 
-  $('input[name="tanggalkeberangkatan"]').on('cancel.daterangepicker', function(ev, picker) {
+  $('input[name="tanggalpenggunaan"]').on('cancel.daterangepicker', function(ev, picker) {
       $(this).val('');
   });
 

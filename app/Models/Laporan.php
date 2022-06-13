@@ -15,10 +15,8 @@ class Laporan extends Model
 
     protected $fillable = [
 
-        'spedometersblm',
         'spedometersudah',
         'keterangan',
-        'tanggalpenggunaan',
         'totalkm',
         'liter'
     ];

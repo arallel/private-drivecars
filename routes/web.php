@@ -27,15 +27,15 @@ use App\Http\Controllers\test;
 | contains the "web" middleware group. Now create something great!
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');   
+// });
 //tester route
-Route::get('test', function () {
+Route::get('/', function () {
     return view('test');
 });
 
-
+Route::resource('Peminjaman',konfirmasicontroller::class);
 
 //
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
