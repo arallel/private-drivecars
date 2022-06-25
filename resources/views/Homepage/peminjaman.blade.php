@@ -16,7 +16,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	</head>
 	<body>
-	{{-- <section class="ftco-section"> --}}
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -52,7 +51,7 @@
 										  <div class="col-md-12">
 												<div class="form-group">  
                     <label for="cars">Choose a car:</label><br>
-                    <select name="kendaraanz" id="cars">
+                    <select name="kendaraan" id="cars">
 											@foreach ($cars as $car)
    								  <option value="{{$car->id}}">{{$car->merkkendaraan}}</option>
    								   @endforeach

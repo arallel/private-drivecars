@@ -28,7 +28,7 @@ class Laporanuser extends Controller
         
         
         $file_name = $request->spedometersudah->hashName();
-        $spedometersudah =  $request->spedometersudah->storeAs('spedometersudah' , $file_name);
+        $spedometersudah =  $request->spedometersudah->storeAs('Laporan' , $file_name);
 
         
         Laporan::create([
@@ -37,6 +37,8 @@ class Laporanuser extends Controller
           'totalkm' => $request->totalkm,
           'liter' => $request->liter,
         ]);
+
+        return redirect()->route('Homescreen');
       }
 
 
@@ -54,7 +56,7 @@ class Laporanuser extends Controller
         $spedometersblm =  $request->spedometersblm->storeAs('spedometersblm' , $file_name);
 
         
-        Laporan::create([
+        Laporan::update ([
           'spedometersblm' => $spedometersblm,
           'tanggalkeberangkatan' => $request->tanggalkeberangkatan,
           'kendaraan' => $request->kendaraan,

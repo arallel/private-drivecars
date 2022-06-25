@@ -1,19 +1,73 @@
+@extends('layouts.template')
+@section('isi')
+<style type="text/css">
+    .badge-success {
+    color: #339537;
+    background-color: #bce2be;
+}
+.badge, .btn {
+    text-transform: uppercase;
+}
+.badge {
+    display: inline-block;
+    padding: 0.55em 0.9em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.45rem;
+}
+.badge-success {
+    color: #339537;
+    background-color: #bce2be;
+}
+.badge, .btn {
+    text-transform: uppercase;
+}
+.badge-secondary {
+    color: #575f8b;
+    background-color: #d7d9e1;
+}
+.input-icons i {
+    position: relative;
+}
+
+.input-icons {
+width: 100%;
+height: 50%;
+margin-bottom: 10px;
+        }
+          
+.icon {
+padding: 10px;
+min-width: 40px;
+text-align: center;
+        }
+          
+.input-field {
+width: 100%;
+padding: 10px;
+text-align: left;
+        } 
+</style>
 <div class="container-fluid py-4">
-<div wire:poll.keep-alive>
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3">Cars table</h6>
               </div>
             </div>
-
             <?php $i = 0; ?>
             <?php $c = $cars->count() > 0?>
             <div class="card-body px-3 pb-2">
-            <button wire:click="create()"
-            class="btn btn-info">create</button> 
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#createmodal">
+               Create
+             </button> 
               <div class="table-responsive p-0">
                
                 <table class="table align-items-center mb-0">
@@ -24,13 +78,14 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Plat kendaraan</th>
                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Photo</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Qr code</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Available</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                   <div>
                     @if ($c > 0)
-                     @foreach ($cars as $car)
+                    @forelse ($cars as $car)
                     <tr>
                     <td class="text-secondary text-sm font-weight-bold">
                       <div class="d-flex px-3 py-1">{{ ++$i }}</div></td>
@@ -42,29 +97,169 @@
                     <td class="align-middle text-center">
                        {!! QrCode::size(100)->generate($car->id.$car->warna.$car->platmobil.$car->nostnk.$car->nobpkb.$car->merkkendaraan.$car->bahanbakar); !!}
                     </td>
-                    <td class="align-middle text-center"><button wire:click="show({{ $car->id }})"
-                        class="btn btn-info"><i class="fa-solid fa-eye"></i></button> 
-                        <button wire:click="edit({{$car->id}})"
-                          class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-                          <button wire:click="deleteConfirmation({{ $car->id }})"
-                            class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                           <!--  <button type="button" class="btn bg-gradient-primary"wire:click="edit({{ $car->id }})">
-                              view
-                            </button> -->
-                            
+                    <td class="align-middle text-center"><span class="badge badge-success">available</span>
                     </td>
-                </tr>
-                      @endforeach
-                      @else
-                      <tr>
+                    <td class="align-middle text-center">
+                     <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#Showmodal{{ $car->id }}">
+                       detail
+                     </button> 
+                     <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Editmodal{{ $car->id }}">
+                       edit
+                     </button> 
+                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#Deletemodal{{ $car->id }}">
+                     Delete
+                     </button>    
+                     </td>
+                      </tr>
+                      <!-- Edit input -->
+<div class="modal fade" id="Editmodal{{$car->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Edit Car</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('update.kendaraan',$car->id)}}" method="POST">
+            @csrf
+            @method('put')
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Merk kendaraan"  @error('merkkendaraan') is-invalid @enderror class="form-control" value="{{$car->merkkendaraan}}" name="merkkendaraan">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Plat kendaraan"  @error('platmobil') is-invalid @enderror class="form-control" value="{{$car->platmobil}}"  name="platmobil">               </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-palette icon"></i>
+                    <input type="color" placeholder="Warna" 
+                    @error('warna') is-invalid @enderror class="form-control" value="{{$car->warna}}"  name="warna">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="stnk"  
+                    @error('nostnk') is-invalid @enderror class="form-control" value="{{$car->nostnk}}"  name="nostnk">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="Bpkb"  
+                    @error('nobpkb') is-invalid @enderror class="form-control" value="{{$car->nobpkb}}"  name="nobpkb">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-gas-pump icon"></i>
+                    <input type="text" placeholder="total bahan bakar"  @error('bahanbakar') is-invalid @enderror class="form-control" value="{{$car->bahanbakar}}"  name="bahanbakar">
+                  </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             
+                @csrf
+                @method('put')
+            <button type="submit" class="btn btn-info">update</button>
+      </div>
+     </form>  
+    </div>
+  </div>
+</div>
+<!-- show modal -->
+<div class="modal fade" id="Showmodal{{$car->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Detail Car</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Merk kendaraan"  @error('merkkendaraan') is-invalid @enderror class="form-control" value="{{$car->merkkendaraan}}" name="merkkendaraan">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Plat kendaraan"  @error('platmobil') is-invalid @enderror class="form-control" value="{{$car->platmobil}}"  name="platmobil">               </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-palette icon"></i>
+                    <input type="color" placeholder="Warna" 
+                    @error('warna') is-invalid @enderror class="form-control" value="{{$car->warna}}"  name="warna">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="stnk"  
+                    @error('nostnk') is-invalid @enderror class="form-control" value="{{$car->nostnk}}"  name="nostnk">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="Bpkb"  
+                    @error('nobpkb') is-invalid @enderror class="form-control" value="{{$car->nobpkb}}"  name="nobpkb">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-gas-pump icon"></i>
+                    <input type="text" placeholder="total bahan bakar"  @error('bahanbakar') is-invalid @enderror class="form-control" value="{{$car->bahanbakar}}"  name="bahanbakar">
+                  </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+     </form>  
+    </div>
+  </div>
+</div>
+                      <div class="modal fade" id="Deletemodal{{ $car->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                             <div class="modal-body">
+                              <h5>Are you sure to delete this data?</h5>
+                              <h6>{{$car->id}}</h6>
+                             </div>
+                             <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="{{route('delete.kendaraan',$car->id)}}" method="POST">
+                                  @csrf
+                                  @method('delete')
+                              <button type="submit" class="btn btn-danger">delete</button>
+                            </form>
+                             </div>
+                           </div>
+                         </div>
+                      </div>
+                      @empty
+                        <tr>
                         <td class="align-middle text-center" colspan="6" ><small>No Cars Found</small></td>
                        </tr>
-                    @endif
+                       <!-- Modal -->
+                     @endforelse
+                     @endif
                     </div>              
                    </tbody>
-                   @if ($c > 0)
-                   {{$cars->links()}}
-                   @endif
                 </table>
               </div>
             </div>
@@ -73,162 +268,75 @@
       </div>
       </div>
   </main>
-  <!-- Modal -->
-<div wire:ignore.self class="modal fade" id="editcar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-             <form wire:submit.prevent="update">
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-car icon"></i>
-                    <input type="text" class="form-control" wire:model="merkkendaraan" >
-                  </div>
-                  </div>
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-palette icon"></i>
-                    <input type="color" class="form-control" wire:model="warna" >
-                  </div>
-                  </div>
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-address-card icon"></i>
-                    <input type="text" class="form-control" wire:model="nostnk" >
-                  </div>
-                  </div>
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-address-card icon"></i>
-                    <input type="text" class="form-control" wire:model="nobpkb" >
-                  </div>
-                  </div>
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-car icon"></i>
-                    <input type="text" class="form-control" wire:model="platmobil" >
-                  </div>
-                  </div>
-                  <div class="input-icons">
-                  <div class="input-group input-group-outline my-3">
-                     <i class="fa-solid fa-gas-pump icon"></i>
-                    <input type="text" class="form-control" wire:model="bahanbakar" >
-                  </div>
-                  </div>
-                  <div class="modal-footer">
-        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn bg-gradient-primary">Save  changes</button>
-                </div>
-                </form>      
-            </div>
-      
-    </div>
-  </div>
-</div>
- 
-    <div class="modal fade" id="deletecar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+  <!-- Modal input -->
+<div class="modal fade" id="createmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title " id="exampleModalLabel">Input Car</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="modal-body pt-4 pb-4">
-                    <h6>Are you sure? You want to delete this student data!</h6>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-sm btn-secondary" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-sm btn-danger" wire:click="delete()">Yes! Delete</button>
-                </div>
+        <form action="{{route('input.datakendaraan')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+           <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-upload icon"></i>
+                    <input type="file" class="form-control" name="filecar">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Merk kendaraan"  @error('merkkendaraan') is-invalid @enderror class="form-control" name="merkkendaraan">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-car icon"></i>
+                    <input type="text" placeholder="Plat kendaraan"  @error('platmobil') is-invalid @enderror class="form-control" name="platmobil">               </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-palette icon"></i>
+                    <input type="color" placeholder="Warna" 
+                    @error('warna') is-invalid @enderror class="form-control" name="warna">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="stnk"  
+                    @error('nostnk') is-invalid @enderror class="form-control" name="nostnk">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                    <i class="fa-solid fa-address-card icon"></i>
+                    <input type="text" placeholder="Bpkb"  
+                    @error('nobpkb') is-invalid @enderror class="form-control" name="nobpkb">
+                  </div>
+            </div>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-gas-pump icon"></i>
+                    <input type="text" placeholder="total bahan bakar"  @error('bahanbakar') is-invalid @enderror class="form-control" name="bahanbakar">
+                  </div>
+            </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- edit -->
-<div wire:ignore.self class="modal fade" id="viewcar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Detail Kendaraan</h5>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <th>image: </th>
-                                <td><img class="test-popup-link" src="{{ asset('storage/' . $view_filecar) }}" width="150" height="100"></td> </td>
-                            </tr>
-                            <tr>
-                                <th>merk: </th>
-                                <td>{{ $view_merkkendaraan }}</td>
-                            </tr>
-                            <tr>
-                                <th>merk: </th>
-                                <td>{{ $view_merkkendaraan }}</td>
-                            </tr>
-                            <tr>
-                                <th>Plat: </th>
-                                <td>{{ $view_platmobil }}</td>
-                            </tr>
-                            <tr>
-                                <th>Warna: </th>
-                                <td>{{ $view_warna }}</td>
-                            </tr>
-                            <tr>
-                                <th>No Bpkb: </th>
-                                <td>{{ $view_nobpkb }}</td>
-                            </tr>
-                            <tr>
-                                <th>No Stnk: </th>
-                                <td>{{ $view_nostnk }}</td>
-                            </tr>
-                            <tr>
-                                <th>Bahan Bakar: </th>
-                                <td>{{ $view_bahanbakar }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
       <div class="modal-footer">
-        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-info">Save changes</button>
       </div>
+     </form>  
     </div>
   </div>
 </div>
 
 
 
-@push('scripts')
-    <script>
-        window.addEventListener('close-modal', event =>{
-            $('#viewcar').modal('hide');
-             $('#editcar').modal('hide');
-              $('#deletecar').modal('hide');
+<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
 
-        });
-
-        window.addEventListener('view-car', event =>{
-            $('#viewcar').modal('show');
-        });
-
-        window.addEventListener('delete-car', event =>{
-            $('#deletecar').modal('show');
-        });
-
-        window.addEventListener('edit-car', event =>{
-            $('#editcar').modal('show');
-        });
-    </script>
-@endpush
+<script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+@endsection

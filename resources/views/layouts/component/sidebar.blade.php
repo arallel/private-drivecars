@@ -17,7 +17,7 @@
           </a>
         </li>
          <li class="nav-item">
-          <a class="nav-link text-white {{{ (Request::is('Userdata') ? 'class= active bg-gradient-info' : '') }}}" href="{{Route('pengguna')}}">
+          <a class="nav-link text-white {{{ (Request::is('Userdata') ? 'class= active bg-gradient-info' : '') }}}" href="{{Route('Users')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-user opacity-10"></i>
             </div>
@@ -38,6 +38,14 @@
               <i class="fa-solid fa-book opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Laporan Data</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{{ (Request::is('datapeminjaman') ? 'class= active bg-gradient-info' : '') }}}" href="{{Route('Datapeminjaman')}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-car opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Peminjaman Data</span>
           </a>
         </li>
         <li class="nav-item mt-3">

@@ -12,6 +12,7 @@ class Konfirmasi extends Model
 
         'spedometersblm',
         'tanggalpenggunaan',
-        'car'
+        'kendaraan',
+        'pengguna'
     ];
 }

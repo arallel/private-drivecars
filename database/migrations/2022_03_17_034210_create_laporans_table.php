@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->string('spedometersudah');
             $table->string('keterangan');
             $table->string('totalkm');
             $table->string('liter');
+            $table->foreignId('pengguna')->constrained('users')->nullable();
+            $table->foreignId('kendaraan')->constrained('cars')->nullable();
+            $table->string('spedometersblm')->nullable();
+            $table->string('tanggalpenggunaan')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

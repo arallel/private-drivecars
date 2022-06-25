@@ -1,5 +1,59 @@
+@extends('layouts.template')
+@section('isi')
+<style type="text/css">
+    .badge-success {
+    color: #339537;
+    background-color: #bce2be;
+}
+.badge, .btn {
+    text-transform: uppercase;
+}
+.badge {
+    display: inline-block;
+    padding: 0.55em 0.9em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.45rem;
+}
+.badge-success {
+    color: #339537;
+    background-color: #bce2be;
+}
+.badge, .btn {
+    text-transform: uppercase;
+}
+.badge-secondary {
+    color: #575f8b;
+    background-color: #d7d9e1;
+}
+.input-icons i {
+    position: relative;
+}
+
+.input-icons {
+width: 100%;
+height: 50%;
+margin-bottom: 10px;
+        }
+          
+.icon {
+padding: 10px;
+min-width: 40px;
+text-align: center;
+        }
+          
+.input-field {
+width: 100%;
+padding: 10px;
+text-align: left;
+        } 
+</style>
 <div class="container-fluid py-4">
- <div wire:poll.keep-alive>
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -22,7 +76,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                     @foreach ($users as $user)
+                    @forelse ($users as $user)
                    <tr>
                     <td class="text-secondary text-sm font-weight-bold">
                       <div class="d-flex px-3 py-1">{{ $user->id }}</div></td>
@@ -31,15 +85,92 @@
                     <td class="align-middle text-center text-secondary text-xs font-weight-bold">{{ $user->gender }}</td>
                     <td class="align-middle text-center"> 
                       @if($user->status == 3)
-                         <span class="badge badge-sm bg-gradient-success">Active</span>
+                         <span class="badge badge-success">Active</span>
                       @else 
-                       <img src="ui/assets/img/nonactive.png"> 
+                       <span class="badge badge-secondary">Non Active</span>
                       @endif  
                     </td>
-                    <td class="align-middle text-center"><button  wire:click="show({{ $user->id }})"
-                      class="btn btn-info"><i class="fa-solid fa-eye text-right"></i></button></td>
-                </tr>
-              @endforeach
+                    <td class="align-middle text-center">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Showmodal{{ $user->id }}">
+                       <i class="fa-solid fa-eye text-right"></i>
+                     </button> </td>
+                      <!-- show modal -->
+<div class="modal fade" id="Showmodal{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Detail User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-user icon"></i>
+                    <input type="text" class="form-control"name="name" value="{{$user->name}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-regular fa-envelope icon"></i>
+                    <input type="text" class="form-control"name="email" value="{{ $user->email}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-venus-mars icon"></i>
+                    <input type="text" class="form-control"name="gender" value="{{ $user->gender}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-phone icon"></i>
+                    <input type="text" class="form-control"name="contact" value="{{ $user->contact}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-calendar-days icon"></i>
+                    <input type="text" class="form-control"name="tanggal_lahir" value="{{ $user->tanggal_lahir}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-map-location-dot icon"></i>
+                    <input type="text" class="form-control"name="provinsi" value="{{ $user->provinsi}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-map-location-dot icon"></i>
+                    <input type="text" class="form-control"name="kabupaten" value="{{ $user->kabupaten}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-map-location-dot icon"></i>
+                    <input type="text" class="form-control"name="kecamatan" value="{{ $user->kecamatan}}" readonly>
+                  </div>
+                  </div>
+                  <div class="input-icons">
+                  <div class="input-group input-group-outline my-3">
+                     <i class="fa-solid fa-location-dot icon"></i>
+                    <input type="text" class="form-control"name="alamat" value="{{ $user->alamat}}" readonly>
+                  </div>
+                  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+     </form>  
+    </div>
+  </div>
+</div>
+                    </tr>
+                    @empty
+                       <tr>
+                        <td class="align-middle text-center" colspan="6" ><small>No Cars Found</small></td>
+                       </tr>  w
+                     @endforelse
                      </tbody>
                 </table>
               </div>
@@ -49,7 +180,5 @@
       </div>
     </div>
   </main>
-   @if($isModalOpen)
-        @include('livewire.user.detailuser')
-        @endif
+@endsection
   

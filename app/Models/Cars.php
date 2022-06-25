@@ -17,7 +17,6 @@ class Cars extends Model
         'merkkendaraan',
         'bahanbakar',
         'filecar',
-        'carsqr',
     ];
     public $incrementing = false;
 

@@ -14,8 +14,6 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
-  <!-- tailwind css -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -37,6 +35,7 @@
 
   @yield('isi')
   </main>
+  @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
   
   @livewireScripts

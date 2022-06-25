@@ -33,10 +33,10 @@
                   <tbody>
                      @foreach ($data as $laporan)
                    <tr>
-                    @if(count($laporan) > 0)
+                     @isset($laporan)
                     <td class="text-secondary text-xs font-weight-bold">
                       <div class="d-flex px-3 py-1">{{ ++$i }}</div></td>
-                    @endif
+                    @endisset
                     <td class="text-secondary text-xs font-weight-bold"><img src="{{ asset('storage/' . $laporan->spedometersblm) }}" width="150" height="100"></td> 
                     <td class="align-middle text-center"><img class="test-popup-link" src="{{ asset('storage/' . $laporan->spedometersudah) }}" width="150" height="100"></td>
                     <td class="align-middle text-center"><textarea class="text-center" rows="3.5" cols="20" readonly> {{ $laporan->keterangan}} </textarea></td>

@@ -2,18 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homecontroller;
-use App\Http\Controllers\showcontroller;
-use App\Http\Livewire\Dashboard\Main;
-use App\Http\Livewire\User\Pengguna;
-use App\Http\Livewire\Kendaraan\Datakendaraan;
 use App\Http\Controllers\Datalaporanpengguna;
-use App\Http\Controllers\lapor;
 use App\Http\Controllers\Laporanuser;
 use App\Http\Controllers\konfirmasicontroller;
 use App\Http\Controllers\UserProfileController;
-use App\Http\Livewire\LaporanTable;
 use App\Http\Livewire\User\Userprofile;
-use App\Http\Controllers\test;
+use App\Http\Controllers\datapeminjaman;
+use App\Http\Controllers\Carsdata\carsdatacontroller;
+use App\Http\Controllers\Usersdata\userdatacontroller;
+use App\Http\Livewire\Dashboard\Main;
+//tester
+
 
 
 
@@ -32,15 +31,18 @@ use App\Http\Controllers\test;
 // });
 //tester route
 Route::get('/', function () {
-    return view('test');
+    return view('home');
+})->name('Homescreen');
+Route::controller(userdatacontroller::class)->group(function () {
+       Route::get('Userdata', 'index')->name('Users');
+     });
+
+Route::controller(datapeminjaman::class)->group(function () {
+    Route::get('datapeminjaman', 'index')->name('Datapeminjaman');
 });
-
 Route::resource('Peminjaman',konfirmasicontroller::class);
-
 //
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    // Route::get('homepage',function(){
-    // }); 
     Route::view('Dashboard','home');
     Route::resource('laporanuser',Laporanuser::class);
         Route::get('Laporanuser', function () {
@@ -49,9 +51,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('datalaporan',[Datalaporanpengguna::class,'index'])->name('Datalaporan');
     Route::get('dashboard',Main::class)->name('Dashboard');
     Route::get('Role','App\Http\Controllers\homecontroller@index');
-    Route::get('Datakendaraan',Datakendaraan::class)->name('kendaraan');
-    Route::get('Userdata',Pengguna::class)->name('pengguna');
     Route::get('Userprofile',Userprofile::class)->name('userprofile');
+
+    Route::controller(carsdatacontroller::class)->group(function () {
+    Route::get('Datakendaraan', 'index')->name('kendaraan');
+    Route::post('Datakendaraan','store')->name('input.datakendaraan');
+    Route::delete('Datakendaraan/{id}','delete')->name('delete.kendaraan');
+    Route::put('Datakendaraan/{id}','update')->name('update.kendaraan');
+     });
 });
 
 

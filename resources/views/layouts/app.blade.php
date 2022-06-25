@@ -11,8 +11,6 @@
  <!--  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> -->
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
-  <!-- tailwind css -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -293,7 +291,8 @@
     });
 
   </script>
-   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
   <script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
